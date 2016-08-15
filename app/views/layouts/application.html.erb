@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MembershipRegister</title>
-    <%= csrf_meta_tags %>
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>Official Membership Register | Ruby New Zealand Incorporated</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link href="/stylesheets/membership.css" media="screen" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="//use.typekit.net/lpd5kis.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-  <body>
-    <%= yield %>
-  </body>
+</head>
+<body>
+  <h1>
+    Official Membership Register
+    <small>Ruby New Zealand Incorporated</small>
+  </h1>
+  <%= yield %>
+</body>
 </html>
