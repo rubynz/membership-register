@@ -8,7 +8,7 @@ class MembershipInquiry
 
   def deliver_email
     return unless valid?
-
+    MembershipMailer.inquiry(member).deliver_now
   end
 
 private

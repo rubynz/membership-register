@@ -1,4 +1,7 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default(
+    from: '"Ruby NZ Membership Service" <membership-robot@ruby.nz>',
+    reply_to: 'secretary@ruby.nz',
+  )
   layout 'mailer'
 end
