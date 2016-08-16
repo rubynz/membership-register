@@ -21,3 +21,13 @@
 
 en:
   hello: "Hello world"
+  errors:
+    attributes:
+      email:
+        cannot_be_found: "couldn't be found in our membership register"
+
+  flash:
+    membership_inquiries:
+      create:
+        notice: "Delivered email with membership details"
+
