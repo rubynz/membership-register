@@ -49,10 +49,7 @@ class MembersController < ApplicationController
   # DELETE /members/1.json
   def destroy
     @member.destroy
-    respond_to do |format|
-      format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_with @member, location: root_path
   end
 
   private
