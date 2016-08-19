@@ -2,6 +2,10 @@ class MembershipInquiriesController < ApplicationController
 
   respond_to :html
 
+  def new
+    @inquiry = MembershipInquiry.new
+  end
+
   def create
     @inquiry = MembershipInquiry.new(inquiry_params)
     @inquiry.deliver_email

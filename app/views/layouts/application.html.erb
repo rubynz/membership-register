@@ -9,19 +9,22 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript" src="//use.typekit.net/lpd5kis.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
 </head>
 <body>
-  <h1>
-    Official Membership Register
-    <small>Ruby New Zealand Incorporated</small>
-  </h1>
+  <header>
+    <div class="content">
+      <h1>
+        Official Membership Register
+        <small>Ruby New Zealand Incorporated</small>
+      </h1>
+    </div>
+  </header>
 
-  <div class="flash">
-    <%= flash[:notice] %>
+  <div class="content">
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+    <%= yield %>
   </div>
-  <%= yield %>
 </body>
 </html>
