@@ -3,6 +3,15 @@ en:
     attributes:
       email:
         cannot_be_found: "couldn't be found in our membership register"
+        invalid: "doesn't look like an email address. Sorry :("
+    messages:
+      already_registered: "has been used on an existing membership"
+
+  activerecord:
+    attributes:
+      member:
+        full_name: 'Full Name'
+        address: 'Physical Address'
 
   flash:
     membership_inquiries:
@@ -12,3 +21,14 @@ en:
   membership_mailer:
     inquiry:
       subject: "Membership Details"
+
+  simple_form:
+    hints:
+      member:
+        address: 'Collecting your address is a requirement of the Incorporated Societies Act 1908'
+
+  helpers:
+    submit:
+      member:
+        create: "Register"
+        update: "Save Changes"

@@ -24,6 +24,7 @@ module MembershipRegister
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.time_zone = 'Pacific/Auckland'
   end
 
   self.basic_auth_options = Rails.application.secrets.basic_auth_options.symbolize_keys

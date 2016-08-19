@@ -19,6 +19,7 @@ $font-size-base: 14pt;
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'header';
+@import 'sticky-footer';
 
 h2 {
   @extend .page-header;

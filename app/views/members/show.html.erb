@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
+<h2>
+  Membership Details
+</h2>
 
-<p>
-  <strong>Full name:</strong>
-  <%= @member.full_name %>
+<p><%= link_to 'Update Details', edit_member_path(@member) %></p>
+
+<%= render_attribute @member, :full_name %>
+<%= render_attribute @member, :joined_at do %>
+  <%= @member.joined_at.to_date.to_s(:long) %>
+<% end %>
+<%= render_attribute @member, :email %>
+<%= render_attribute @member, :address do %>
+  <%= simple_format @member.address %>
+<% end %>
+
+<p class="small text-muted">
+  If you would like to cancel your membership,
+  please email <a href="mailto:secretary@ruby.nz">secretary@ruby.nz</a>.
 </p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @member.email %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @member.address %>
-</p>
-
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Destroy', @member, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,0 +1,21 @@
+$footer-height: 6em;
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin-bottom: $footer-height;
+}
+
+.page-footer {
+  background-color: $gray-lighter;
+  bottom: 0;
+  font-style: italic;
+  height: $footer-height;
+  padding: 1em;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}

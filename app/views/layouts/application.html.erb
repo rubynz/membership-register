@@ -24,11 +24,15 @@
     </header>
 
     <div class="container">
-      <div class="flash">
-        <%= flash[:notice] %>
-      </div>
       <%= yield %>
     </div>
+
+    <footer class='page-footer'>
+      <div class="container">
+        If you have any questions, feedback, or problems,
+        please email <a href="mailto:secretary@ruby.nz">secretary@ruby.nz</a>.
+      </div>
+    </footer>
 
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
