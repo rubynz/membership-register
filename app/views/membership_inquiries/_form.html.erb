@@ -1,8 +1,8 @@
 <p>
-  You can check your membership and update your details with the email address
-  you used for membership.
+  <%= t '.instructions' %>
+
   <%= simple_form_for(inquiry) do |f| %>
-    <%= f.input :email, placeholder: 'Email Address', label: false %>
-    <%= f.button :submit, 'Submit Inquiry' %>
+    <%= f.input :email, placeholder: :translate, label: false %>
+    <%= f.button :submit %>
   <% end %>
 </p>

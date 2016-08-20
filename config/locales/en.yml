@@ -1,4 +1,9 @@
 en:
+  membership_inquiries:
+    form:
+      instructions:
+        You can check and update your membership details via the email address you used for membership.
+
   errors:
     attributes:
       email:
@@ -26,9 +31,14 @@ en:
     hints:
       member:
         address: 'Collecting your address is a requirement of the Incorporated Societies Act 1908'
+    placeholders:
+      membership_inquiry:
+        email: "Email Address"
 
   helpers:
     submit:
       member:
         create: "Register"
         update: "Save Changes"
+      membership_inquiry:
+        create: "Request Access"
