@@ -6,7 +6,7 @@ en:
   members:
     token_error:
       message:
-        "The token is invalid. It may be missing, incorrect, or expired."
+        "The security token is invalid. It may be missing, incorrect, or expired."
 
   errors:
     attributes:
