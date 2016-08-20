@@ -2,12 +2,20 @@ class Member < ApplicationRecord
 
   validates :full_name, {
     presence: true,
-    uniqueness: { if: :full_name_changed?, message: :already_registered },
+    uniqueness: {
+      if: :full_name_changed?,
+      message: :already_registered,
+      case_sensitive: false,
+    },
   }
 
   validates :email, {
     presence: true,
-    uniqueness: { if: :email_changed?, message: :already_registered },
+    uniqueness: {
+      if: :email_changed?,
+      message: :already_registered,
+      case_sensitive: false,
+    },
     format: /.+@.+\..+/
   }
 
