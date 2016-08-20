@@ -4,3 +4,5 @@
     <%= t '.message' %>
   </p>
 </div>
+
+<%= render 'membership_inquiries/form', inquiry: MembershipInquiry.new(email: @member.email) %>
