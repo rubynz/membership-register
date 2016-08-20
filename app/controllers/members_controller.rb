@@ -1,4 +1,9 @@
 class MembersController < ApplicationController
+  InvalidToken = Class.new(StandardError)
+  TOKEN_EXPIRY = 2.hours
+
+  rescue_from InvalidToken, with: :render_token_error
+
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -19,7 +24,7 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
     @member.save
-    respond_with @member
+    respond_with @member, location: [@member, token: @member.token]
   end
 
   def update
@@ -31,9 +36,23 @@ private
 
   def set_member
     @member = Member.find(params[:id])
+    raise InvalidToken unless token_valid?
   end
 
   def member_params
     params.require(:member).permit(:full_name, :email, :address)
+  end
+
+  def token
+    session[:token] = params[:token] || session[:token]
+  end
+
+  def token_valid?
+    @member.token == token &&
+      @member.token_updated_at > TOKEN_EXPIRY.ago
+  end
+
+  def render_token_error
+    render :token_error
   end
 end

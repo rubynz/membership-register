@@ -3,6 +3,10 @@ en:
     form:
       instructions:
         You can check and update your membership details via the email address you used for membership.
+  members:
+    token_error:
+      message:
+        "The token is invalid. It may be missing, incorrect, or expired."
 
   errors:
     attributes:

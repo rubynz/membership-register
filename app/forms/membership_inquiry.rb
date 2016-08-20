@@ -8,7 +8,7 @@ class MembershipInquiry
 
   def deliver_email
     return unless valid?
-    member.update! token: SecureRandom.hex, token_updated_at: Time.current
+    member.reset_token!
     MembershipMailer.inquiry(member).deliver_now
   end
 
