@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'application#home'
 
   resources :members, except: :index
-  resources :membership_inquiries, only: [:new, :create]
+  resource :membership_inquiry, only: [:new, :create, :show]
 
   namespace :admin do
     resources :members

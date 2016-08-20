@@ -2,16 +2,9 @@
   Membership Details
 </h2>
 
-<p><%= link_to 'Update Details', edit_member_path(@member) %></p>
+<%= render 'details', member: @member %>
 
-<%= render_attribute @member, :full_name %>
-<%= render_attribute @member, :joined_at do %>
-  <%= @member.joined_at.to_date.to_s(:long) %>
-<% end %>
-<%= render_attribute @member, :email %>
-<%= render_attribute @member, :address do %>
-  <%= simple_format @member.address %>
-<% end %>
+<p><%= link_to 'Update Details…', edit_member_path(member) %></p>
 
 <p class="small text-muted">
   If you would like to cancel your membership,

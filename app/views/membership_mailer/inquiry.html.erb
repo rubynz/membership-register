@@ -1,3 +1,26 @@
-Your membership can be managed via
+<style type="text/css">
+  body { background: #eee; }
+</style>
+<style type="text/css">
+    @media only screen and (max-width: 480px){
+        .bodyContent{font-size:14pt !important;}
+    }
+</style>
 
-<%= link_to 'friendly membership robot', @member %>
+<div class="content" style="width: 25em;background: white;margin: 1em auto;padding: 1em;font-size: 12pt;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">
+  <h2>
+    Your Ruby New Zealand Membership
+  </h2>
+
+  <div class="details">
+    <%= render 'members/details', member: @member %>
+  </div>
+
+  <p><%= link_to 'Update details online…', edit_member_url(@member, token: @member.token) %></p>
+
+  <p class="small text-muted">
+    If you would like to cancel your membership,
+    please email <a href="mailto:secretary@ruby.nz">secretary@ruby.nz</a>
+    by replying to this message.
+  </p>
+</div>

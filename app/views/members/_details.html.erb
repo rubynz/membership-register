@@ -1,0 +1,8 @@
+<%= render_attribute member, :full_name %>
+<%= render_attribute member, :joined_at do %>
+  <%= member.joined_at.to_date.to_s(:long) %>
+<% end %>
+<%= render_attribute member, :email %>
+<%= render_attribute member, :address do %>
+  <%= simple_format member.address %>
+<% end %>

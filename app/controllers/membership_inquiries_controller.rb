@@ -9,7 +9,7 @@ class MembershipInquiriesController < ApplicationController
   def create
     @inquiry = MembershipInquiry.new(inquiry_params)
     @inquiry.deliver_email
-    respond_with @inquiry, location: root_path
+    respond_with @inquiry, location: :membership_inquiry
   end
 
 private
