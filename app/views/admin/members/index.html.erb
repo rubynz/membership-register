@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Members</h1>
+<h2>Members</h2>
 
 <p>
   This is a legal document. The secretary of
@@ -9,13 +7,16 @@
   and can be asked to provide it  if the society is audited.
 
   More details can be found on the
-  <%= link_to 'societies website', 'http://www.societies.govt.nz/cms/incorporated-societies/running-a-society/what-records-should-you-keep' %>
+  <%= link_to 'societies website', 'http://www.societies.govt.nz/cms/incorporated-societies/running-a-society/what-records-should-you-keep' %>.
 </p>
 
-<table>
+<%= link_to 'New Member', new_admin_member_path %>
+
+<table class='table'>
   <thead>
     <tr>
       <th>Full name</th>
+      <th>Joined</th>
       <th>Email</th>
       <th>Address</th>
       <th colspan="3"></th>
@@ -26,15 +27,13 @@
     <% @members.each do |member| %>
       <tr>
         <td><%= member.full_name %></td>
+        <td><%= member.join_date.to_s(:long) %></td>
         <td><%= member.email %></td>
         <td><%= member.address %></td>
-        <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
+        <td><%= link_to 'Show', [:admin, member] %></td>
+        <td><%= link_to 'Edit', edit_admin_member_path(member) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Member', new_member_path %>

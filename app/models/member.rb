@@ -28,6 +28,10 @@ class Member < ApplicationRecord
     update! token: SecureRandom.hex, token_updated_at: Time.current
   end
 
+  def join_date
+    joined_at.to_date
+  end
+
 private
 
   def set_joined_at
