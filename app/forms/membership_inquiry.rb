@@ -9,7 +9,7 @@ class MembershipInquiry
   def deliver_email
     return unless valid?
     member.reset_token!
-    MembershipMailer.inquiry(member).deliver_later
+    MembershipMailer.inquiry(member).deliver_now
   end
 
 private
