@@ -1,7 +1,5 @@
-<h2>
-  Membership Details
-</h2>
+<h2><%= t '.page-title' %></h2>
 
 <%= render 'details', member: @member %>
 
-<p><%= link_to 'Edit', edit_admin_member_path(@member) %></p>
+<p><%= link_to t(:edit), edit_admin_member_path(@member) %></p>

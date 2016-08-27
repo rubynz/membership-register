@@ -7,6 +7,14 @@ en:
     token_error:
       message:
         "The security token is invalid. It may be missing, incorrect, or expired."
+    edit:
+      page-title: "Editing Membership"
+  admin:
+    members:
+      index:
+        page-title: "Members"
+      show:
+        page-title: "Membership Details"
 
   errors:
     attributes:
