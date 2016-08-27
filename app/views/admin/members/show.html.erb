@@ -2,4 +2,8 @@
 
 <%= render 'details', member: @member %>
 
-<p><%= link_to t(:edit), edit_admin_member_path(@member) %></p>
+<p>
+  <%= link_to t(:edit), edit_admin_member_path(@member) %>
+  |
+  <%= link_to t(:back), admin_members_path %>
+</p>
