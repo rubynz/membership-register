@@ -22,12 +22,13 @@ class MembersController < ApplicationController
   end
 
   def create
-    @member = Member.new(member_params)
+    @member = MembershipApplication.new(member_params)
     @member.save
     respond_with @member, location: [@member, token: @member.token]
   end
 
   def update
+    @member = @member.becomes(MembershipApplication)
     @member.update(member_params)
     respond_with @member
   end
