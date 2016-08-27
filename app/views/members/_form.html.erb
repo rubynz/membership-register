@@ -5,4 +5,4 @@
   <%= f.button :submit %>
 <% end %>
 
-<%= link_to 'Cancel Changes', @member %>
+<%= link_to 'Cancel Changes', @member if @member.persisted? %>
