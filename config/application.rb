@@ -25,6 +25,11 @@ module MembershipRegister
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = 'Pacific/Auckland'
+
+    if ENV['CANONICAL_HOST']
+      config.middleware.insert_before ActionDispatch::SSL, Rack::CanonicalHost, ENV['CANONICAL_HOST']
+    end
+
   end
 
   self.basic_auth_options = Rails.application.secrets.basic_auth_options.symbolize_keys
