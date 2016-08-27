@@ -11,6 +11,7 @@
       <th><%= Member.human_attribute_name(:joined) %></th>
       <th><%= Member.human_attribute_name(:email) %></th>
       <th><%= Member.human_attribute_name(:address) %></th>
+      <th><%= Member.human_attribute_name(:updated) %></th>
     </tr>
   </thead>
 
@@ -21,6 +22,7 @@
         <td><%= member.join_date.to_s(:long) %></td>
         <td><%= member.email %></td>
         <td><%= member.address %></td>
+        <td><%= time_ago_span(member.updated_at) %></td>
       </tr>
     <% end %>
   </tbody>
