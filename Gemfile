@@ -7,6 +7,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'responders'
 gem 'simple_form'
+gem 'rack-canonical-host'
 
 # Asset related
 gem 'sass-rails', '~> 5.0'
