@@ -1,10 +1,20 @@
-<p>
-  This is Ruby New Zealand’s official membership register.
-  Membership isn’t very fancy, but it does allow you to have your say about the committee
-  and other society matters at the AGM held at Rails Camp each year.
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <h2>New Members</h2>
+    <p>
+      This is Ruby New Zealand’s official membership register.
+      Membership isn’t very fancy, but it does allow you to have your say about the committee
+      and other society matters at the AGM held at Rails Camp each year.
+      <br>
+      <%= link_to 'Register for membership…', new_member_path %>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <h2>Existing Members</h2>
+    <p>
+      Already a member and need to update your details? Not sure if you're a member?<br>
+      <%= link_to 'Check existing membership…', new_membership_inquiry_path %>
+    </p>
 
-<ul>
-  <li><%= link_to 'Register for membership', new_member_path %></li>
-  <li><%= link_to 'Check existing membership', new_membership_inquiry_path %></li>
-</ul>
+  </div>
+</div>
