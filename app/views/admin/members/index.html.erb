@@ -2,8 +2,12 @@
 
 <%= render 'legal' %>
 
-<%= link_to t('.new-member'), new_admin_member_path %>
 <%= link_to t('.download-csv'), url_for(format: :csv), style: 'float:right' %>
+
+<p>
+  <strong><%= pluralize Member.count, Member.model_name.human %></strong>
+  <%= link_to t('.new-member'), new_admin_member_path %>
+</p>
 
 <table class='table'>
   <thead>
