@@ -30,7 +30,12 @@
     <footer class='page-footer'>
       <div class="container">
         If you have any questions, feedback, or problems,
-        please email <a href="mailto:secretary@ruby.nz">secretary@ruby.nz</a>.
+        please email <a href="mailto:secretary@ruby.nz">secretary@ruby.nz</a>
+        <% if ENV['REPO_URL'] %>
+          or raise a
+          <%= link_to 'pull request', ENV['REPO_URL'] %>
+        <% end %>
+        .
       </div>
     </footer>
 
