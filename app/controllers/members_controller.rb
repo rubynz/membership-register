@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   InvalidToken = Class.new(StandardError)
-  TOKEN_EXPIRY = 2.hours
+  TOKEN_EXPIRY = 24.hours
 
   rescue_from InvalidToken, with: :render_token_error
 
