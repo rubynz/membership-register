@@ -8,6 +8,7 @@ gem 'puma', '~> 3.0'
 gem 'responders'
 gem 'simple_form'
 gem 'rack-canonical-host'
+gem 'as_csv'
 
 # Asset related
 gem 'sass-rails', '~> 5.0'

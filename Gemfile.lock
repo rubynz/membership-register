@@ -40,6 +40,10 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (7.1.1)
+    as_csv (2.0.2)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      responders
     autoprefixer-rails (6.4.0.2)
       execjs
     bootstrap-sass (3.3.7)
@@ -174,6 +178,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  as_csv
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.2)
