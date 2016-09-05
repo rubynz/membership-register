@@ -2,8 +2,11 @@ module Admin
   class MembersController < ::MembersController
     http_basic_authenticate_with MembershipRegister.basic_auth_options
 
+    respond_to :csv, only: :index
+
     def index
       @members = Member.all.order(joined_at: :desc)
+      respond_with @members
     end
 
     def create
