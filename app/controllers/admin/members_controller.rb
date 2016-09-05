@@ -5,7 +5,7 @@ module Admin
     respond_to :csv, only: :index
 
     def index
-      @members = Member.all.order(joined_at: :desc)
+      @members = Member.all.order(updated_at: :desc)
       respond_with @members
     end
 
