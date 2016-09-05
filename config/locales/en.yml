@@ -37,7 +37,7 @@ en:
   flash:
     membership_inquiries:
       create:
-        notice: "Sent email with membership details"
+        notice: "Sent email with membership details. Delivery may take a few minutes."
 
   membership_mailer:
     inquiry:
