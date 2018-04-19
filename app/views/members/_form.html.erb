@@ -1,7 +1,7 @@
 <%= simple_form_for(member) do |f| %>
   <%= f.input :full_name %>
   <%= f.input :email %>
-  <%= f.input :address, as: :text, input_html: { rows: 3 } %>
+  <%= f.input :address, as: :text, input_html: { rows: 3, class: "addressfinder" } %>
   <%= f.button :submit %>
 <% end %>
 
