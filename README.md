@@ -24,3 +24,9 @@ To start a local server, run:
     bin/rails server
 
 By default, this will start a local webserver on [http://localhost:3000](http://localhost:3000)
+
+## Maintenance
+
+### Upgrading Rails
+
+Follow the [Upgrading Rails Guide](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html) which, as of May 10, 2020 suggests updating each Rails version incrementally and running `bin/rails app:update` to compare new defaults.

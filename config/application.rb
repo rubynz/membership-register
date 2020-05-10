@@ -21,10 +21,10 @@ module MembershipRegister
   self.society_name = ENV['SOCIETY_NAME']
 
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-    config.time_zone = 'Pacific/Auckland'
+    # Application configuration can go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded after loading
+    # the framework and any gems in your application.
+    config.time_zone = ENV.fetch('APP_TIMEZONE', 'Pacific/Auckland')
 
     if ENV['CANONICAL_HOST']
       config.middleware.insert_before ActionDispatch::SSL, Rack::CanonicalHost, ENV['CANONICAL_HOST']
