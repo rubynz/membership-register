@@ -30,6 +30,8 @@ module MembershipRegister
       config.middleware.insert_before ActionDispatch::SSL, Rack::CanonicalHost, ENV['CANONICAL_HOST']
     end
 
+    config.log_level = ENV.fetch('LOG_LEVEL', 'debug')
+
   end
 
   self.basic_auth_options = Rails.application.secrets.basic_auth_options.symbolize_keys
