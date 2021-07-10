@@ -15,6 +15,8 @@
 # gem 'pg'
 #
 default: &default
+  username: postgres
+  host: localhost
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
@@ -81,5 +83,3 @@ test:
 production:
   <<: *default
   database: membership-register_production
-  username: membership-register
-  password: <%= ENV['MEMBERSHIP-REGISTER_DATABASE_PASSWORD'] %>
