@@ -19,3 +19,4 @@
 config/database.yml
 db/schema.rb
 .rspec
+docker-compose.yml

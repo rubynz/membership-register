@@ -1,0 +1,18 @@
+default: &default
+  username: postgres
+  password: postgres
+  host: db
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  database: membership-register_development
+
+test:
+  <<: *default
+  database: membership-register_test
+
+production:
+  <<: *default
+  database: membership-register_production
