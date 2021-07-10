@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
 gem 'rails', '~> 5.2.0'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
+gem "pg"
+gem "puma"
 gem 'responders'
 gem 'simple_form'
 gem 'rack-canonical-host'
@@ -20,7 +20,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
+  gem "listen"
 end
 
 group :test do
