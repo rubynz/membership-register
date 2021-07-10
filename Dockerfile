@@ -1,4 +1,4 @@
-from ruby:2.6.6
+from ruby:2.7.4
 
 env \
   DEBIAN_FRONTEND=noninteractive \
