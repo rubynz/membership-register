@@ -2,7 +2,7 @@
   <%= t '.instructions' %>
 
   <%= simple_form_for(inquiry, url: membership_inquiry_path) do |f| %>
-    <%= f.input :email, placeholder: :translate, label: false %>
+    <%= f.input :email, placeholder: :translate %>
     <%= f.button :submit %>
   <% end %>
 </p>
