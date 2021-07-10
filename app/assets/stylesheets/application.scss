@@ -16,12 +16,9 @@ $brand-primary: #ca1d00;
 $header-muted: #e6bab3;
 $font-size-base: 14pt;
 
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
 @import 'header';
 @import 'sticky-footer';
 
-h2 {
-  @extend .page-header;
-  margin-top: .5em;
-}
+h1 { font-size: 36pt; }
+h2 { font-size: 30pt; }
+body { font-size: 14pt; }

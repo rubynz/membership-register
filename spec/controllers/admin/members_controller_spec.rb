@@ -10,7 +10,7 @@ describe Admin::MembersController do
       it "downloads an empty CSV" do
         get :index, format: :csv
 
-        expect(response.body).to eq %[id,full_name,joined_at,email,address,data,created_at,updated_at,token,token_updated_at
+        expect(response.body).to eq %[id,full_name,joined_at,email,address,data,created_at,updated_at
 ]
       end
     end
@@ -41,13 +41,13 @@ describe Admin::MembersController do
       it "includes the first member" do
         get :index, format: :csv
 
-        expect(response.body).to match %[.{8}-.{4}-.{4}-.{4}-.{12},Alice,.*,alice@example.com,Alice Address,{},.*,.*,.*,.*]
+        expect(response.body).to match %[.{8}-.{4}-.{4}-.{4}-.{12},Alice,.*,alice@example.com,Alice Address,{},.*,.*]
       end
 
       it "includes the second member" do
         get :index, format: :csv
 
-        expect(response.body).to match %[.{8}-.{4}-.{4}-.{4}-.{12},Beatrice,.*,beatrice@example.com,Beatrice Address,{},.*,.*,.*,.*]
+        expect(response.body).to match %[.{8}-.{4}-.{4}-.{4}-.{12},Beatrice,.*,beatrice@example.com,Beatrice Address,{},.*,.*]
       end
     end
   end

@@ -1,4 +1,14 @@
 class Member < ApplicationRecord
+  EXPORTABLE_FIELDS = %w[
+    id
+    full_name
+    joined_at
+    email
+    address
+    data
+    created_at
+    updated_at
+  ]
 
   before_create :set_joined_at
   after_create :reset_token!

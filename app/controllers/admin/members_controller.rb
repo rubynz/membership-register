@@ -2,7 +2,13 @@ require "csv"
 
 module Admin
   class MembersController < ::MembersController
-    http_basic_authenticate_with MembershipRegister.basic_auth_options
+    http_basic_authenticate_with(
+      name: ENV.fetch("AUTH_NAME") { "secretary" },
+      password: ENV.fetch("AUTH_PASSWORD") {
+        Rails.logger.info("You have not set a password for the admin area")
+        SecureRandom.hex
+      }
+    )
 
     def index
       @members = Member.all.order(updated_at: :desc)
@@ -11,22 +17,9 @@ module Admin
         format.html
         format.csv do
           csv_content = CSV.generate(headers: true) do |csv|
-            csv << %w[id full_name joined_at email address data created_at updated_at token token_updated_at]
+            csv << Member::EXPORTABLE_FIELDS
 
-            @members.each do |member|
-              csv << [
-                member.id,
-                member.full_name,
-                member.joined_at,
-                member.email,
-                member.address,
-                member.data,
-                member.created_at,
-                member.updated_at,
-                member.token,
-                member.token_updated_at
-              ]
-            end
+            @members.pluck(*Member::EXPORTABLE_FIELDS).each { |member| csv << member }
           end
 
           send_data csv_content, type: "text/csv"
