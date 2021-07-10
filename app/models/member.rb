@@ -11,11 +11,6 @@ class Member < ApplicationRecord
     joined_at.to_date
   end
 
-  def self.to_csv
-    rows = [attribute_names] + find_each.map { |m| m.attributes.values }
-    rows.map { |r| CSV.generate_line(r) }.join
-  end
-
 private
 
   def set_joined_at

@@ -52,10 +52,6 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     arel (9.0.0)
-    as_csv (2.0.2)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      responders
     autoprefixer-rails (9.7.6)
       execjs
     bindex (0.8.1)
@@ -217,7 +213,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  as_csv
   bootsnap
   bootstrap-sass (~> 3.4.1)
   byebug

@@ -8,7 +8,6 @@ gem 'puma', '~> 3.0'
 gem 'responders'
 gem 'simple_form'
 gem 'rack-canonical-host'
-gem 'as_csv'
 gem 'bootsnap'
 
 # Asset related
