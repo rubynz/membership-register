@@ -6,7 +6,7 @@ Keeps track of membership to a society.
 
 ### Prerequisites
 
-* Ruby
+* Ruby (See `.ruby-version` for the version you have to install)
 * Postgres
 
 ### Set-up

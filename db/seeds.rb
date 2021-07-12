@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+ActiveRecord::Base.transaction do
+  [
+    "Alice Doe",
+    "Beatrice Doe",
+    "Carl Doe",
+    "Dan Doe",
+  ].each do |full_name|
+    Member.find_or_initialize_by(full_name: full_name).tap do |member|
+      member.email = %[#{full_name.downcase.gsub(" ", ".")}@example.com]
+      member.save if member.new_record?
+    end
+  end
+end
