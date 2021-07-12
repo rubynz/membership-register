@@ -4,7 +4,7 @@ ruby File.read('.ruby-version').strip
 
 gem 'rails', '~> 5.2.0'
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 4.3'
 gem 'responders'
 gem 'simple_form'
 gem 'rack-canonical-host'

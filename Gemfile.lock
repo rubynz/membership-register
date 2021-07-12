@@ -112,7 +112,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     pg (0.21.0)
     public_suffix (4.0.5)
-    puma (3.12.6)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-canonical-host (1.0.0)
       addressable (> 0, < 3)
@@ -227,7 +228,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mimemagic!
   pg (~> 0.18)
-  puma (~> 3.0)
+  puma (~> 4.3)
   rack-canonical-host
   rails (~> 5.2.0)
   responders
