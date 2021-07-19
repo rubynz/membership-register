@@ -20,6 +20,10 @@ require "rails/test_unit/railtie"
 Bundler.require(*Rails.groups)
 
 module MembershipRegister
+  def self.society_name
+    ENV.fetch("SOCIETY_NAME") { "Sample Society" }
+  end
+
   class Application < Rails::Application
     config.time_zone = ENV.fetch('APP_TIMEZONE', 'Pacific/Auckland')
 
