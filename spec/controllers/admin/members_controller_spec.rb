@@ -44,6 +44,12 @@ describe Admin::MembersController do
         expect(response.body).to match %[.{8}-.{4}-.{4}-.{4}-.{12},Alice,.*,alice@example.com,Alice Address,{},.*,.*]
       end
 
+      it "does not include the token" do
+        get :index, format: :csv
+
+        expect(response.body).not_to match %[#{Member.take.token}]
+      end
+
       it "includes the second member" do
         get :index, format: :csv
 
