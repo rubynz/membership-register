@@ -9,7 +9,7 @@
     Array.prototype.forEach.call(elements, function (addressElement) {
       widget = new AddressFinder.Widget(
         addressElement,
-        '<%= Rails.configuration.x.addressfinder.public_key %>',
+        "<%= ENV["ADDRESSFINDER_PUBLIC_KEY"] %>",
         'NZ',
         {
           address_params: {
