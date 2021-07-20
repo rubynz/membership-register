@@ -1,17 +1,14 @@
-smtp_username = ENV['SENDGRID_USERNAME']
-smtp_password = ENV['SENDGRID_PASSWORD']
-
-if smtp_username && smtp_password
-  ActionMailer::Base.delivery_method = :smtp
+if ENV["MAILGUN_SMTP_LOGIN"].present?
   ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => smtp_username,
-    :password       => smtp_password,
-    :domain         => 'heroku.com',
-    :enable_starttls_auto => true
+    :port           => ENV["MAILGUN_SMTP_PORT"],
+    :address        => ENV["MAILGUN_SMTP_SERVER"],
+    :user_name      => ENV["MAILGUN_SMTP_LOGIN"],
+    :password       => ENV["MAILGUN_SMTP_PASSWORD"],
+    :domain         => ENV["MAILGUN_DOMAIN"],
+    :authentication => :plain
   }
+
+  ActionMailer::Base.delivery_method = :smtp
 else
   warn "** SKIPPING SMTP CONFIGURATION"
 end
