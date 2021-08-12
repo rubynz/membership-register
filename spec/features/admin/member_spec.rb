@@ -1,6 +1,4 @@
-require "rails_helper"
-
-describe "Admin" do
+RSpec.describe "Admin" do
   context "when user is not authenticated" do
     it "does not see anything" do
       visit "/admin/members"

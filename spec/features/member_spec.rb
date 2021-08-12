@@ -1,6 +1,4 @@
-require "rails_helper"
-
-describe "Member" do
+RSpec.describe "Member" do
   it "registers for a membership" do
     visit "/"
 

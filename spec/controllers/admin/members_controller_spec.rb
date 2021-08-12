@@ -1,6 +1,4 @@
-require "rails_helper"
-
-describe Admin::MembersController do
+RSpec.describe Admin::MembersController do
   context "when user is authenticated" do
     before do
       @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("secretary:password")
