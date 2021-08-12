@@ -1,0 +1,13 @@
+<h2>Cast your vote</h2>
+
+<p>Enter your registered email address to receive your unique voting link:</p>
+
+<%= form_with url: vote_requests_url, method: :post do |f| %>
+  <div class="form-group email required">
+    <%= f.label :email, class: 'control-label' %>
+    <%= f.email_field :email, class: 'form-control' %>
+    <p>Double-check your email address. To protect member privacy, we won't tell you if it's valid.</p>
+  </div>
+
+  <%= f.submit 'Send voting link', class: 'btn btn-default' %>
+<% end %>

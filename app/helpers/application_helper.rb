@@ -18,4 +18,8 @@ module ApplicationHelper
     content_tag(:span, time_ago_in_words(time), title: time)
   end
 
+  def voting_enabled?
+    Rails.configuration.vote_url_template.present?
+  end
+
 end

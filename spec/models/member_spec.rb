@@ -1,6 +1,4 @@
-require "rails_helper"
-
-describe Member do
+RSpec.describe Member do
   subject { Member.new(full_name: "Jonh Doe") }
 
   it "is valid" do

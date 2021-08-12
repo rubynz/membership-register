@@ -10,6 +10,8 @@ class Member < ApplicationRecord
     updated_at
   ]
 
+  has_secure_token :voting_token
+
   before_create :set_joined_at
   after_create :reset_token!
 

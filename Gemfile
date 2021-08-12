@@ -14,7 +14,12 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 
 group :development, :test do
-  gem "rspec-rails"
+  # Load local .env files
+  gem 'dotenv-rails'
+
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'capybara-email'
 end
 
 group :development do
