@@ -42,6 +42,8 @@ en:
   membership_mailer:
     inquiry:
       subject: "Membership Details"
+    vote_request:
+      subject: "Your voting link"
 
   simple_form:
     hints:

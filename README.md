@@ -25,6 +25,23 @@ To start a local server, run:
 
 By default, this will start a local webserver on [http://localhost:3000](http://localhost:3000)
 
+
+## Testing
+
+This codebase started out without tests. Some are being introduced over time.
+
+To run tests:
+
+    bundle exec rspec
+
+## Voting
+
+Voting can be enabled by setting a `VOTE_URL_TEMPLATE` environment variable.
+
+    VOTE_URL_TEMPLATE=https://voting-site.com/token=%token%
+
+When set, a message will appear on the home page, and members will be able to get a unique link emailed to them through a form, which substitutes `%token%` in the URL template with each member's unique `voting_token`.
+
 ## Maintenance
 
 ### Upgrading Rails

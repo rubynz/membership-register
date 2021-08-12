@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   resources :members, except: :index
   resource :membership_inquiry, only: [:new, :create, :show]
+  resources :vote_requests, only: [:new, :create]
 
   namespace :admin do
     resources :members
   end
+
 end

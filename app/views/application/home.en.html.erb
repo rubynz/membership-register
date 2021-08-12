@@ -1,4 +1,14 @@
 <div class="row">
+  <% if voting_enabled? %>
+    <div class="col-md-12">
+      <h2>Voting now live</h2>
+      <p>
+        Voting for this year's AGM is available for members.
+        <%= link_to 'Cast your vote…', new_vote_request_path %>
+      </p>
+    </div>
+  <% end %>
+
   <div class="col-md-6">
     <div class="page-header">
       <h2>New Members</h2>
@@ -21,6 +31,5 @@
       Already a member and need to update your details? Not sure if you're a member?<br>
       <%= link_to 'Check existing membership…', new_membership_inquiry_path %>
     </p>
-
   </div>
 </div>

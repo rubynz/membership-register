@@ -37,5 +37,9 @@ module MembershipRegister
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Used for membership voting
+    config.vote_url_template = ENV['VOTE_URL_TEMPLATE']
+
   end
 end
