@@ -11,6 +11,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 
 # Asset related
 gem 'sass-rails', '>= 6'
+gem "sprockets", "< 4"
 gem 'webpacker', '~> 5.0'
 
 group :development, :test do
