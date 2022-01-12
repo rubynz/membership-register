@@ -16,4 +16,9 @@ class MembershipMailer < ApplicationMailer
     @vote_url = Rails.configuration.vote_url_template.sub('%token%', @member.voting_token)
     mail to: @member.email
   end
+
+  def confirm(member)
+    @member = member
+    mail to: @member.email
+  end
 end

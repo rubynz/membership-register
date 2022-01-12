@@ -1,0 +1,33 @@
+<style type="text/css">
+  body { background: #eee; }
+</style>
+<style type="text/css">
+    @media only screen and (max-width: 480px){
+        .bodyContent{font-size:14pt !important;}
+    }
+</style>
+
+<div class="content" style="width: 25em;background: white;margin: 1em auto;padding: 1em;font-size: 12pt;font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">
+  <div class="page-header">
+    <p>
+      Hi <%= @member.full_name %>,
+    </p>
+    <p>
+      Membership of the Ruby New Zealand Society has grown in recent years, and we (the current Ruby New Zealand Committee) want to ensure that we have an accurate list of current members.
+    </p>
+    <p>
+      If you would like to remain a member of Ruby New Zealand, please confirm your existing membership here:
+      <%= link_to 'Confirm Membership', new_membership_confirmation_url %>
+    </p>
+    <p>
+      Being a member of Ruby New Zealand allows you to have your say about the committee and other society matters at the annual AGM.
+    </p>
+    <p>
+      If you choose not to confirm your membership before the end of the year, we will remove your details from the Ruby New Zealand Member’s register. Should you wish to rejoin, you can register for membership here: <%= link_to 'Official Membership Register', root_url %>
+    </p>
+    <p>
+      Kind regards,
+      The 2021 New Zealand Ruby Committee.
+    </p>
+  </div>
+</div>

@@ -44,6 +44,8 @@ en:
       subject: "Membership Details"
     vote_request:
       subject: "Your voting link"
+    confirm:
+      subject: "Ruby NZ Society Membership"
 
   simple_form:
     hints:
