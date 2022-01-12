@@ -1,0 +1,8 @@
+<p>
+  <%= t '.instructions' %>
+
+  <%= simple_form_for(confirm, url: membership_confirmation_path) do |f| %>
+    <%= f.input :email, placeholder: :translate %>
+    <%= f.button :submit %>
+  <% end %>
+</p>
