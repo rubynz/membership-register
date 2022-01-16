@@ -26,4 +26,16 @@ RSpec.describe Member do
     subject.full_name = nil
     expect(subject).to be_valid
   end
+
+  describe "#confirm!" do
+    it "sets the last_active_at value of the record to the current time" do
+      subject.last_active_at = 3.years.ago
+
+      expect {
+        subject.confirm!
+      }.to change {
+        subject.last_active_at.year
+      }.from(3.years.ago.year).to Date.current.year
+    end
+  end
 end

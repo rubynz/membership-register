@@ -16,6 +16,10 @@ class Member < ApplicationRecord
   before_create :set_joined_at
   after_create :reset_token!
 
+  def confirm!
+    update! last_active_at: Time.current
+  end
+
   def reset_token!
     update! token: SecureRandom.hex, token_updated_at: Time.current
   end
