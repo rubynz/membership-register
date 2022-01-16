@@ -6,6 +6,7 @@ class Member < ApplicationRecord
     email
     address
     data
+    last_active_at
     created_at
     updated_at
   ]
