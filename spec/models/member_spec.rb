@@ -9,6 +9,10 @@ RSpec.describe Member do
     expect { subject.save }.to change { subject.joined_at }
   end
 
+  it "sets last_active_at" do
+    expect { subject.save }.to change { subject.last_active_at }
+  end
+
   it "sets token" do
     expect { subject.save }.to change { subject.token }
   end
@@ -36,6 +40,24 @@ RSpec.describe Member do
       }.to change {
         subject.last_active_at.year
       }.from(3.years.ago.year).to Date.current.year
+    end
+  end
+
+  describe "#reset_token!" do
+    it "sets last_active_at, token, and token_updated_at" do
+      subject.last_active_at = 3.years.ago
+      subject.token_updated_at = 3.years.ago
+
+      expect {
+        subject.reset_token!
+      }.to change {
+        subject.token
+      }.and change {
+        subject.token_updated_at.year
+      }.from(3.years.ago.year).to(Date.current.year)
+      .and change {
+        subject.last_active_at.year
+      }.from(3.years.ago.year).to(Date.current.year)
     end
   end
 end

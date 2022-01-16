@@ -21,7 +21,11 @@ class Member < ApplicationRecord
   end
 
   def reset_token!
-    update! token: SecureRandom.hex, token_updated_at: Time.current
+    update!(
+      token: SecureRandom.hex,
+      token_updated_at: Time.current,
+      last_active_at: Time.current
+    )
   end
 
   def join_date
