@@ -3,6 +3,10 @@ en:
     form:
       instructions:
         You can check and update your membership details via the email address you used for membership.
+  membership_confirmations:
+    form:
+      instructions:
+        Submitting your email address will automatically confirm your continued NZ Ruby Membership.
 
   members:
     token_error:
@@ -38,12 +42,17 @@ en:
     membership_inquiries:
       create:
         notice: "Sent email with membership details. Delivery may take a few minutes."
+    membership_confirmations:
+      create:
+        notice: "Congratulations. You have successfully confirmed your continuing Ruby NZ Membership."
 
   membership_mailer:
     inquiry:
       subject: "Membership Details"
     vote_request:
       subject: "Your voting link"
+    confirm:
+      subject: "Ruby NZ Society Membership"
 
   simple_form:
     hints:
@@ -51,6 +60,8 @@ en:
         address: 'Collecting your address is a requirement of the Incorporated Societies Act 1908'
     placeholders:
       membership_inquiry:
+        email: "Email Address"
+      membership_confirmation:
         email: "Email Address"
 
   helpers:
@@ -60,3 +71,5 @@ en:
         update: "Save Changes"
       membership_inquiry:
         create: "Request Access"
+      membership_confirmation:
+        create: "Confirm Membership"

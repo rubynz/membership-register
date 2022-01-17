@@ -6,6 +6,7 @@ class Member < ApplicationRecord
     email
     address
     data
+    last_active_at
     created_at
     updated_at
   ]
@@ -15,8 +16,16 @@ class Member < ApplicationRecord
   before_create :set_joined_at
   after_create :reset_token!
 
+  def confirm!
+    update! last_active_at: Time.current
+  end
+
   def reset_token!
-    update! token: SecureRandom.hex, token_updated_at: Time.current
+    update!(
+      token: SecureRandom.hex,
+      token_updated_at: Time.current,
+      last_active_at: Time.current
+    )
   end
 
   def join_date
