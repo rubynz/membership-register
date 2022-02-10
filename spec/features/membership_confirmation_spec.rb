@@ -64,10 +64,10 @@ RSpec.describe "membership confirmation process" do
       expect(email.body.encoded).to match(
         %r{
           (?-x:.*If you choose not to confirm your membership before the end of).*
-          (?-x:the year, we will remove your details from the Ruby New Zealand).*
+          (?-x:next month, we will remove your details from the Ruby New Zealand).*
           (?-x:Member’s register. Should you wish to rejoin, you can register).*
           (?-x:for membership here:).*
-          (?-x:Kind regards.*The 2021 New Zealand Ruby Committee.)
+          (?-x:Kind regards.*The 2021 New Zealand Ruby Committee)
         }xm
       )
 
@@ -103,5 +103,16 @@ RSpec.describe "membership confirmation process" do
         "Ruby NZ Membership."
       )
     end
+  end
+
+  it "errors gracefully when a fake or invalid email is provided" do
+    visit "/membership_confirmation/new"
+
+    fill_in "Email", with: "bob"
+
+    click_on "Confirm Membership"
+
+    expect(page).to have_selector(".has-error")
+    expect(page).to have_content("couldn't be found in our membership register")
   end
 end
