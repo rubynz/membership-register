@@ -64,7 +64,7 @@ RSpec.describe "membership confirmation process" do
       expect(email.body.encoded).to match(
         %r{
           (?-x:.*If you choose not to confirm your membership before the end of).*
-          (?-x:the year, we will remove your details from the Ruby New Zealand).*
+          (?-x:next month, we will remove your details from the Ruby New Zealand).*
           (?-x:Member’s register. Should you wish to rejoin, you can register).*
           (?-x:for membership here:).*
           (?-x:Kind regards.*The 2021 New Zealand Ruby Committee.)
