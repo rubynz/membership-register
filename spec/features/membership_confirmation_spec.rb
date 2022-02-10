@@ -104,4 +104,15 @@ RSpec.describe "membership confirmation process" do
       )
     end
   end
+
+  it "errors gracefully when a fake or invalid email is provided" do
+    visit "/membership_confirmation/new"
+
+    fill_in "Email", with: "bob"
+
+    click_on "Confirm Membership"
+
+    expect(page).to have_selector(".has-error")
+    expect(page).to have_content("couldn't be found in our membership register")
+  end
 end
