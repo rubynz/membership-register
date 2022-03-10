@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby File.read('.ruby-version').strip
 
-gem "rails", "6.1.4.7"
+gem "rails", "7.0.2.3"
 gem "pg"
 gem "puma"
 gem 'responders'
