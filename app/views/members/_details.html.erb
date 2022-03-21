@@ -1,6 +1,6 @@
 <%= render_attribute member, :full_name %>
 <%= render_attribute member, :joined_at do %>
-  <%= member.join_date.to_s(:long) %>
+  <%= member.join_date.to_fs(:long) %>
 <% end %>
 <%= render_attribute member, :email %>
 <%= render_attribute member, :address do %>
