@@ -9,7 +9,7 @@
     Array.prototype.forEach.call(elements, function (addressElement) {
       widget = new AddressFinder.Widget(
         addressElement,
-        "<%= ENV["ADDRESSFINDER_PUBLIC_KEY"] %>",
+        "PKWQ7XJH3GBUCLFMV49Y",
         'NZ',
         {
           address_params: {

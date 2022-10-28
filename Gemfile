@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby File.read('.ruby-version').strip
 
-gem "rails", "7.0.3.1"
+gem "rails", "7.0.4"
 gem "pg"
 gem "puma"
 gem 'responders'
@@ -12,7 +12,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 # Asset related
 gem 'sass-rails', '>= 6'
 gem "sprockets", "< 4"
-gem 'webpacker', '~> 5.0'
+gem "jsbundling-rails"
 
 group :development, :test do
   # Load local .env files
