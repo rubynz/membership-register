@@ -10,12 +10,12 @@ jobs:
       - run: cp config/database.yml.docker config/database.yml
       - run: cp docker-compose.yml.sample docker-compose.yml
       - run: cp .env.sample .env
-      - run: docker-compose build && docker-compose pull
-      - run: docker-compose run --rm app gem install bundler
-      - run: docker-compose run --rm app bundle install --jobs=4 --retry=3
-      - run: docker-compose run --rm app bundle exec rake db:create
-      - run: docker-compose run -e RAILS_ENV=test --rm app bundle exec rake db:migrate
-      - run: docker-compose run -e RAILS_ENV=test --rm app yarn install
-      - run: docker-compose run -e RAILS_ENV=test --rm app bundle exec rake assets:precompile
+      - run: docker compose build && docker compose pull
+      - run: docker compose run --rm app gem install bundler
+      - run: docker compose run --rm app bundle install --jobs=4 --retry=3
+      - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake db:create:all
+      - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake db:migrate
+      - run: docker compose run -e RAILS_ENV=test --rm app yarn install
+      - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake assets:precompile
       - name: build
-        run: docker-compose run --rm app bundle exec rspec -f d
+        run: docker compose run --rm app bundle exec rspec -f d
