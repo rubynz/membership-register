@@ -111,8 +111,6 @@ GEM
     crass (1.0.6)
     date (3.3.3)
     diff-lcs (1.5.0)
-    dockerfile-rails (1.2.5)
-      rails
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -288,7 +286,6 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   capybara
   capybara-email
-  dockerfile-rails (>= 1.2)
   dotenv-rails
   falcon
   jsbundling-rails
