@@ -4,7 +4,7 @@ ruby File.read('.ruby-version').strip
 
 gem "rails", "7.0.4.1"
 gem "pg"
-gem "puma"
+gem "falcon"
 gem 'responders'
 gem 'simple_form'
 gem "bootsnap", ">= 1.4.4", require: false
@@ -24,5 +24,6 @@ group :development, :test do
 end
 
 group :development do
+  gem "dockerfile-rails", ">= 1.2"
   gem "listen"
 end
