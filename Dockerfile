@@ -1,18 +1,12 @@
 from ruby:3.2.1-alpine
 
+# apk dependencies:
+# sassc: g++
+# nokogiri: .ruby-gemdeps libc-dev gcc libxml2-dev libxslt-dev make libffi-dev
 RUN apk add \
-    # g++ is required for sassc
-    g++ \
-    postgresql-dev \
-    postgresql-client \
-    nodejs \
-    npm \
-    tzdata
-
-# for nokogiri
-RUN apk add --virtual .ruby-gemdeps libc-dev gcc libxml2-dev libxslt-dev make libffi-dev
-
-RUN npm install -g yarn
+    g++ postgresql-dev postgresql-client nodejs npm tzdata && \
+    apk add --virtual .ruby-gemdeps libc-dev gcc libxml2-dev libxslt-dev make libffi-dev && \
+    npm install -g yarn
 
 ENV TZ Pacific/Auckland
 ENV BUNDLE_JOBS 8
