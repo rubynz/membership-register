@@ -1,13 +1,16 @@
 from ruby:3.2.1-alpine
 
-RUN apk add postgresql-dev postgresql-client
-RUN apk add nodejs npm
-RUN apk add tzdata
+RUN apk add \
+    # g++ is required for sassc
+    g++ \
+    postgresql-dev \
+    postgresql-client \
+    nodejs \
+    npm \
+    tzdata
 
 # for nokogiri
 RUN apk add --virtual .ruby-gemdeps libc-dev gcc libxml2-dev libxslt-dev make libffi-dev
-# for sassc
-RUN apk add g++
 
 RUN npm install -g yarn
 
@@ -33,8 +36,6 @@ RUN if [ "$RAILS_ENV" = "production" ]; then \
     && mkswap /swapfile \
     && chmod 600 /swapfile; \
     fi
-
-RUN rm Dockerfile
 
 EXPOSE ${PORT:-3000}
 CMD if [ -f /swapfile ]; then swapon /swapfile; fi; \
