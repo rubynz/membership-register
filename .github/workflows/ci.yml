@@ -12,11 +12,10 @@ jobs:
       - run: cp .env.sample .env
       - run: docker compose build --build-arg RAILS_ENV=test
       - run: docker compose pull
-      - run: alias dcr="docker compose run -e RAILS_ENV=test --rm app"
-      - run: dcr bundle config set without 'development'
-      - run: dcr bundle install
-      - run: dcr yarn install
-      - run: dcr bundle exec rake assets:precompile
-      - run: dcr bundle exec rake db:create
-      - run: dcr bundle exec rake db:migrate
-      - run: dcr bundle exec rspec -f d
+      - run: docker compose run -e RAILS_ENV=test --rm app bundle config set without 'development'
+      - run: docker compose run -e RAILS_ENV=test --rm app bundle install
+      - run: docker compose run -e RAILS_ENV=test --rm app yarn install
+      - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake assets:precompile
+      - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake db:create
+      - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake db:migrate
+      - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rspec -f d
