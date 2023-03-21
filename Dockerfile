@@ -38,4 +38,4 @@ RUN rm Dockerfile
 
 EXPOSE ${PORT:-3000}
 CMD if [ -f /swapfile ]; then swapon /swapfile; fi; \
-    bundle exec falcon serve -n "${FALCON_INSTANCES:-1}" -b "tcp://0.0.0.0:${PORT:-3000}"
+    bundle exec falcon serve -n "${FALCON_INSTANCES:-1}" -b "http://0.0.0.0:${PORT:-3000}"

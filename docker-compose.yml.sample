@@ -18,7 +18,7 @@ services:
     environment:
       - BUNDLE_APP_CONFIG=/app/.bundle
     working_dir: /app
-    command: bundle exec falcon serve -n 2 -b 'tcp://0.0.0.0:3000'
+    command: bundle exec falcon serve -n 2 -b 'http://0.0.0.0:3000'
     ports:
       - "3000:3000"
     links:
