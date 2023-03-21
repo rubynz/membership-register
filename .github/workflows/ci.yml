@@ -16,6 +16,5 @@ jobs:
       - run: docker compose run -e RAILS_ENV=test --rm app bundle install
       - run: docker compose run -e RAILS_ENV=test --rm app yarn install
       - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake assets:precompile
-      - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake db:create
-      - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake db:migrate
+      - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake db:{create,migrate}
       - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rspec -f d
