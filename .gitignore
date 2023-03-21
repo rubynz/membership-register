@@ -27,6 +27,7 @@ docker-compose.yml
 yarn-debug.log*
 .yarn-integrity
 public/assets
+spec/examples.txt
 
 # Ignore RSpec persistence file
 .rspec-status
