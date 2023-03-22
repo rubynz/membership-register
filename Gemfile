@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").strip
 
-gem "rails", "7.0.4.1"
+gem "rails", "7.0.4.3"
 gem "pg"
 gem "falcon"
 gem "responders"
