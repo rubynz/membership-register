@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").strip
 
-gem "rails", "7.1.3.1"
+gem "rails", "7.1.3.4"
 gem "pg"
 gem "falcon"
 gem "responders"
@@ -15,9 +15,7 @@ gem "sprockets", "< 4"
 gem "jsbundling-rails"
 
 group :development, :test do
-  # Load local .env files
-  gem "dotenv-rails"
-
+  gem "dotenv"
   gem "rspec-rails"
   gem "capybara"
   gem "capybara-email"

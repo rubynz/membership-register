@@ -17,6 +17,8 @@ services:
       - bundle_path:/usr/local/bundle
     environment:
       - BUNDLE_APP_CONFIG=/app/.bundle
+      - AUTH_NAME=secretary
+      - AUTH_PASSWORD=password
     working_dir: /app
     command: bundle exec falcon serve -n 2 -b 'http://0.0.0.0:3000'
     ports:

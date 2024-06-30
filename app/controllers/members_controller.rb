@@ -4,7 +4,7 @@ class MembersController < ApplicationController
 
   rescue_from InvalidToken, with: :render_token_error
 
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:show, :edit, :update]
 
   respond_to :html
 
