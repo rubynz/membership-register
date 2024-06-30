@@ -1,4 +1,16 @@
-RSpec.describe Admin::MembersController do
+RSpec.describe Admin::MembersController, type: :controller do
+  context "when user is using a wrong password" do
+    before do
+      @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("secretary:wrong")
+    end
+
+    it "shows the correct error message" do
+      get :index, format: :csv
+
+      expect(response.body).to include("HTTP Basic: Access denied")
+    end
+  end
+
   context "when user is authenticated" do
     before do
       @request.env["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("secretary:password")
