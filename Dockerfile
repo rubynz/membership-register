@@ -1,4 +1,4 @@
-from ruby:3.2.2-alpine
+from ruby:3.3.3-alpine
 
 # apk dependencies:
 # sassc: g++
