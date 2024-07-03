@@ -1,4 +1,4 @@
-from ruby:3.3.3-alpine
+FROM ruby:3.3.3-alpine
 
 # apk dependencies:
 # sassc: g++
@@ -25,12 +25,7 @@ RUN if [ "$RAILS_ENV" = "production" ]; then \
     && bundle install \
     && yarn install \
     && bundle exec rake assets:precompile \
-    && rm -f /swapfile \
-    && dd if=/dev/zero of=/swapfile bs=1024 count=1048576 \
-    && mkswap /swapfile \
-    && chmod 600 /swapfile; \
     fi
 
 EXPOSE ${PORT:-3000}
-CMD if [ -f /swapfile ]; then swapon /swapfile; fi; \
-    bundle exec falcon serve -n "${FALCON_INSTANCES:-1}" -b "http://0.0.0.0:${PORT:-3000}"
+CMD bundle exec falcon serve -n "${FALCON_INSTANCES:-1}" -b "http://0.0.0.0:${PORT:-3000}"

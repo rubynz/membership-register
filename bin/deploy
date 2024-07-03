@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+fly deploy
+fly ssh console --command 'fallocate -l 512M /swapfile'
+fly ssh console --command 'chmod 0600 /swapfile'
+fly ssh console --command 'mkswap /swapfile'
+fly ssh console --command 'sysctl -w vm.swappiness=10'
+fly ssh console --command 'swapon /swapfile'
