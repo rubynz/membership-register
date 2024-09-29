@@ -4,6 +4,8 @@ Keeps track of membership to a society.
 
 ## Getting started
 
+(Docker version follows).
+
 ### Prerequisites
 
 * Ruby (See `.ruby-version` for the version you have to install)
@@ -12,7 +14,13 @@ Keeps track of membership to a society.
 
 ### Set-up
 
-Clone this repository and run the following from the working directory:
+Install dependencies, copy `config/database.yml.sample` to `config/database.yml`:
+
+    cp config/database.yml.sample config/database.yml
+
+Edit `config/database.yml` according to your setup.
+
+Then run:
 
     bin/setup
     yarn install
@@ -31,13 +39,38 @@ And
 
     yarn build --watch
 
-## Testing
-
-This codebase started out without tests. Some are being introduced over time.
-
 To run tests:
 
     bundle exec rspec
+
+## Getting started (using docker)
+
+Install [docker](https://docs.docker.com/engine/install/) and
+[docker compose](https://docs.docker.com/compose/install/).
+
+Copy files:
+
+    cp docker-compose.yml.sample docker-compose.yml
+    cp config/database.yml.docker config/database.yml
+
+Edit them according to your setup and preferences.
+
+NOTE: leave `RAILS_ENV: test` or change it to `RAILS_ENV: development` in
+`docker-compose.yml`. Either value does the same.
+
+Then run:
+
+    docker compose pull
+    docker compose build
+    docker compose run --rm app ./bin/setup
+
+To start:
+
+    docker compose up app assets
+
+To run the tests:
+
+    docker compose run --rm app bundle exec rspec
 
 ## Voting
 

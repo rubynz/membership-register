@@ -10,7 +10,7 @@ services:
     expose:
       - "5432"
 
-  app:
+  assets: &ruby
     build: .
     volumes:
       - .:/app
@@ -20,6 +20,10 @@ services:
       - AUTH_NAME=secretary
       - AUTH_PASSWORD=password
     working_dir: /app
+    command: yarn build --watch
+
+  app:
+    <<: *ruby
     command: bundle exec falcon serve -n 2 -b 'http://0.0.0.0:3000'
     ports:
       - "3000:3000"
