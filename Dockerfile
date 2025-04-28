@@ -25,7 +25,7 @@ RUN if [ "$RAILS_ENV" = "production" ]; then \
     && bundle install \
     && yarn install \
     && bundle exec rake assets:precompile \
-    fi
+    ;fi
 
 EXPOSE ${PORT:-3000}
 CMD bundle exec falcon serve -n "${FALCON_INSTANCES:-1}" -b "http://0.0.0.0:${PORT:-3000}"
