@@ -6,7 +6,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - run: cp config/database.yml.docker config/database.yml
       - run: cp docker-compose.yml.sample docker-compose.yml
       - run: cp .env.sample .env

@@ -1,10 +1,11 @@
-FROM ruby:3.3.3-alpine
+FROM ruby:4.0.0-alpine
 
 # apk dependencies:
 # sassc: g++
 # nokogiri: .ruby-gemdeps libc-dev gcc libxml2-dev libxslt-dev make libffi-dev
+# psych: yaml-dev
 RUN apk add \
-    g++ postgresql-dev postgresql-client nodejs npm tzdata && \
+    g++ postgresql-dev postgresql-client nodejs npm tzdata yaml-dev && \
     apk add --virtual .ruby-gemdeps libc-dev gcc libxml2-dev libxslt-dev make libffi-dev && \
     npm install -g yarn
 
