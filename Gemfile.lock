@@ -125,6 +125,7 @@ GEM
       fiber-local (~> 1.1)
       json
     crass (1.0.6)
+    csv (3.3.5)
     date (3.5.1)
     diff-lcs (1.5.1)
     dotenv (3.1.4)
@@ -345,6 +346,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   capybara
   capybara-email
+  csv
   dotenv
   falcon
   jsbundling-rails
@@ -358,7 +360,7 @@ DEPENDENCIES
   sprockets (< 4)
 
 RUBY VERSION
-   ruby 4.0.0p0
+  ruby 4.0.0p0
 
 BUNDLED WITH
-   4.0.3
+  4.0.3
