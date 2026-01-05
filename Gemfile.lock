@@ -358,7 +358,7 @@ DEPENDENCIES
   sprockets (< 4)
 
 RUBY VERSION
-   ruby 3.3.3p89
+   ruby 4.0.0p0
 
 BUNDLED WITH
-   2.5.14
+   4.0.3
