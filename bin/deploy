@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 
-missing() {
-  [[ $(which $@ >/dev/null 2>&1; echo $?) == "1" ]] && return 0 || return 1
-}
-
-if missing fly; then
+if ! which flyctl >/dev/null 2>&1; then
   echo "Please install flyctl: https://fly.io/docs/flyctl/install"
   exit 1
 fi
 
-fly deploy
+flyctl deploy
 
-fly ssh console --command 'fallocate -l 2048M /.fly-upper-layer/swapfile'
-fly ssh console --command 'chmod 0600 /.fly-upper-layer/swapfile'
-fly ssh console --command 'mkswap /.fly-upper-layer/swapfile'
-fly ssh console --command 'sysctl -w vm.swappiness=10'
-fly ssh console --command 'swapon /.fly-upper-layer/swapfile'
+flyctl ssh console --command 'sh -c "
+  swapoff /.fly-upper-layer/swapfile; \
+  fallocate -l 2048M /.fly-upper-layer/swapfile && \
+  chmod 0600 /.fly-upper-layer/swapfile && \
+  mkswap /.fly-upper-layer/swapfile && \
+  sysctl -w vm.swappiness=10 && \
+  swapon /.fly-upper-layer/swapfile
+"'
