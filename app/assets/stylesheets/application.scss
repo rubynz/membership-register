@@ -12,12 +12,9 @@
  *
  */
 
-$brand-primary: #ca1d00;
-$header-muted: #e6bab3;
-$font-size-base: 14pt;
-
-@import 'header';
-@import 'sticky-footer';
+@use "variables" as *;
+@use "header";
+@use "sticky-footer";
 
 body { font-size: $font-size-base; }
 h1 { font-size: 2.6rem; }
