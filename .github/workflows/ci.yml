@@ -1,5 +1,7 @@
 name: CI
+
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,8 +12,7 @@ jobs:
       - run: cp config/database.yml.docker config/database.yml
       - run: cp docker-compose.yml.sample docker-compose.yml
       - run: cp .env.sample .env
-      - run: docker compose build --build-arg RAILS_ENV=test
-      - run: docker compose pull
+      - run: docker compose build --pull --build-arg RAILS_ENV=test
       - run: docker compose run -e RAILS_ENV=test --rm app bundle config set without 'development'
       - run: docker compose run -e RAILS_ENV=test --rm app bundle install
       - run: docker compose run -e RAILS_ENV=test --rm app yarn install

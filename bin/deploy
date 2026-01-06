@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
-fly deploy
-fly ssh console --command 'fallocate -l 512M /swapfile'
-fly ssh console --command 'chmod 0600 /swapfile'
-fly ssh console --command 'mkswap /swapfile'
-fly ssh console --command 'sysctl -w vm.swappiness=10'
-fly ssh console --command 'swapon /swapfile'
+if ! which flyctl >/dev/null 2>&1; then
+  echo "Please install flyctl: https://fly.io/docs/flyctl/install"
+  exit 1
+fi
+
+flyctl deploy
+
+flyctl ssh console --command 'sh -c "
+  swapoff /.fly-upper-layer/swapfile; \
+  fallocate -l 2048M /.fly-upper-layer/swapfile && \
+  chmod 0600 /.fly-upper-layer/swapfile && \
+  mkswap /.fly-upper-layer/swapfile && \
+  sysctl -w vm.swappiness=10 && \
+  swapon /.fly-upper-layer/swapfile
+"'
