@@ -5,8 +5,7 @@ set -eou pipefail
 cp config/database.yml.docker config/database.yml
 cp docker-compose.yml.sample docker-compose.yml
 cp .env.sample .env
-docker compose build --build-arg RAILS_ENV=test
-docker compose pull
+docker compose build --pull --build-arg RAILS_ENV=test
 docker compose run -e RAILS_ENV=test --rm app bundle config set without 'development'
 docker compose run -e RAILS_ENV=test --rm app bundle install
 docker compose run -e RAILS_ENV=test --rm app yarn install
