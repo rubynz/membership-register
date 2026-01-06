@@ -11,9 +11,9 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "csv"
 
 # Asset related
-gem "sass-rails", ">= 6"
-gem "sprockets", "< 4"
+gem "dartsass-rails"
 gem "jsbundling-rails"
+gem "sprockets-rails"
 
 group :development, :test do
   gem "dotenv"
