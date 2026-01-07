@@ -8,10 +8,17 @@ fi
 flyctl deploy
 
 flyctl ssh console --command 'sh -c "
-  swapoff /.fly-upper-layer/swapfile; \
-  fallocate -l 2048M /.fly-upper-layer/swapfile && \
-  chmod 0600 /.fly-upper-layer/swapfile && \
-  mkswap /.fly-upper-layer/swapfile && \
-  sysctl -w vm.swappiness=10 && \
-  swapon /.fly-upper-layer/swapfile
+  sysctl -w vm.swappiness=25 && \
+  fallocate -l 128M /.fly-upper-layer/swapfile1 && \
+  chmod 0600 /.fly-upper-layer/swapfile1 && \
+  mkswap /.fly-upper-layer/swapfile1 && \
+  swapon /.fly-upper-layer/swapfile1 && \
+  fallocate -l 128M /.fly-upper-layer/swapfile2 && \
+  chmod 0600 /.fly-upper-layer/swapfile2 && \
+  mkswap /.fly-upper-layer/swapfile2 && \
+  swapon /.fly-upper-layer/swapfile2 && \
+  fallocate -l 128M /.fly-upper-layer/swapfile3 && \
+  chmod 0600 /.fly-upper-layer/swapfile3 && \
+  mkswap /.fly-upper-layer/swapfile3 && \
+  swapon /.fly-upper-layer/swapfile3
 "'

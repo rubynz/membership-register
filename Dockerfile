@@ -5,7 +5,7 @@ FROM ruby:4.0.0-alpine
 # nokogiri: .ruby-gemdeps libc-dev gcc libxml2-dev libxslt-dev make libffi-dev
 # psych: yaml-dev
 RUN apk add \
-    g++ postgresql-dev postgresql-client nodejs npm tzdata yaml-dev && \
+    g++ postgresql-dev postgresql-client nodejs npm tzdata yaml-dev jemalloc jemalloc-dev && \
     apk add --virtual .ruby-gemdeps libc-dev gcc libxml2-dev libxslt-dev make libffi-dev && \
     npm install -g yarn
 
@@ -29,4 +29,7 @@ RUN if [ "$RAILS_ENV" = "production" ]; then \
     ;fi
 
 EXPOSE ${PORT:-3000}
+
+ENV LD_PRELOAD=/usr/lib/libjemalloc.so.2
+
 CMD bundle exec falcon serve -n "${FALCON_INSTANCES:-1}" -b "http://0.0.0.0:${PORT:-3000}"

@@ -6,8 +6,8 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
-  # Eager load code on boot for better performance and memory savings (ignored by Rake tasks).
-  config.eager_load = true
+  # Load code on-demand to save memory (acceptable trade-off for low-traffic app)
+  config.eager_load = false
 
   # Full error reports are disabled.
   config.consider_all_requests_local = false
@@ -50,8 +50,8 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
-  # Replace the default in-process memory cache store with a durable alternative.
-  # config.cache_store = :mem_cache_store
+  # Use bounded in-process cache to prevent memory bloat
+  config.cache_store = :memory_store, { size: 8.megabytes }
 
   # Replace the default in-process and non-durable queuing backend for Active Job.
   # config.active_job.queue_adapter = :resque

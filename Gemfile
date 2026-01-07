@@ -2,7 +2,17 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version").strip
 
-gem "rails", "8.1.1"
+# Only include Rails frameworks we actually use (see config/application.rb)
+rails_version = "8.1.1"
+gem "activemodel", rails_version
+gem "activejob", rails_version
+gem "activerecord", rails_version
+gem "actionpack", rails_version
+gem "actionmailer", rails_version
+gem "actionview", rails_version
+gem "railties", rails_version
+# Excluded: activestorage, actioncable, actiontext, actionmailbox
+
 gem "pg"
 gem "falcon"
 gem "responders"
