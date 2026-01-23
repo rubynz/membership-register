@@ -3,7 +3,4 @@
   <%= member.join_date.to_fs(:long) %>
 <% end %>
 <%= render_attribute member, :email %>
-<%= render_attribute member, :address do %>
-  <%= simple_format member.address %>
-<% end %>
 <%= render_attribute member, :phone %>

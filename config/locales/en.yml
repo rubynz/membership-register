@@ -35,7 +35,6 @@ en:
     attributes:
       member:
         full_name: 'Full Name'
-        address: 'Physical Address'
         joined_at: 'Joined'
 
   flash:

@@ -3,7 +3,6 @@ RSpec.feature 'Voting' do
     member = Member.create!(
       full_name: 'Ada Lovelace',
       email: 'ada@example.com',
-      address: 'Marylebone',
       phone: "02X 000 0000"
     )
 

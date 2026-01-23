@@ -3,7 +3,6 @@ RSpec.describe "membership confirmation process" do
     Member.create!(
       full_name: "John Doe",
       email: "john.doe@example.com",
-      address: "22 Pollen Street, Grey Lynn, Auckland 1021",
       phone: "02X 000 0000"
     )
   }

@@ -5,7 +5,6 @@ RSpec.describe "Member" do
     click_on "Register for membership…"
     fill_in "Full Name", with: "John Doe"
     fill_in "Email", with: "john.doe@example.com"
-    fill_in "Physical Address", with: "22 Pollen Street, Grey Lynn, Auckland 1021"
     fill_in "Phone", with: "02X 000 0000"
 
     expect(page).to have_content "Collecting your phone is a requirement"
@@ -16,8 +15,6 @@ RSpec.describe "Member" do
     expect(page).to have_content "Full Name: John Doe"
     expect(page).to have_content "Joined: "
     expect(page).to have_content "Email: john.doe@example.com"
-    expect(page).to have_content %[Physical Address:
-22 Pollen Street, Grey Lynn, Auckland 1021]
     expect(page).to have_content "Phone: 02X 000 0000"
   end
 
@@ -27,7 +24,6 @@ RSpec.describe "Member" do
     click_on "Register for membership…"
     fill_in "Full Name", with: "John Doe"
     fill_in "Email", with: "john.doe@example.com"
-    fill_in "Physical Address", with: "22 Pollen Street, Grey Lynn, Auckland 1021"
     fill_in "Phone", with: "02X 000 0000"
 
     click_on "Register"
@@ -38,7 +34,6 @@ RSpec.describe "Member" do
 
     fill_in "Full Name", with: "Alice Doe"
     fill_in "Email", with: "alice.doe@example.com"
-    fill_in "Physical Address", with: "5 Leamington Street, Addington, Christchurch 8024"
     fill_in "Phone", with: "02X 000 0001"
 
     click_on "Save Changes"
@@ -47,8 +42,6 @@ RSpec.describe "Member" do
     expect(page).to have_content "Full Name: Alice Doe"
     expect(page).to have_content "Joined: "
     expect(page).to have_content "Email: alice.doe@example.com"
-    expect(page).to have_content %[Physical Address:
-5 Leamington Street, Addington, Christchurch 8024]
     expect(page).to have_content "Phone: 02X 000 0001"
   end
 
@@ -56,7 +49,6 @@ RSpec.describe "Member" do
     Member.create!(
       full_name: "John Doe",
       email: "john.doe@example.com",
-      address: "22 Pollen Street, Grey Lynn, Auckland 1021",
       phone: "02X 000 0000"
     )
 
@@ -82,7 +74,6 @@ RSpec.describe "Member" do
 
     fill_in "Full Name", with: "Alice Doe"
     fill_in "Email", with: "alice.doe@example.com"
-    fill_in "Physical Address", with: "5 Leamington Street, Addington, Christchurch 8024"
     fill_in "Phone", with: "02X 000 0001"
     click_on "Save Changes"
 
@@ -90,8 +81,6 @@ RSpec.describe "Member" do
     expect(page).to have_content "Full Name: Alice Doe"
     expect(page).to have_content "Joined: "
     expect(page).to have_content "Email: alice.doe@example.com"
-    expect(page).to have_content %[Physical Address:
-5 Leamington Street, Addington, Christchurch 8024]
     expect(page).to have_content "Phone: 02X 000 0001"
   end
 
@@ -100,7 +89,6 @@ RSpec.describe "Member" do
       member = Member.create!(
         full_name: "John Doe",
         email: "john.doe@example.com",
-        address: "22 Pollen Street, Grey Lynn, Auckland 1021",
       )
 
       visit "/"
