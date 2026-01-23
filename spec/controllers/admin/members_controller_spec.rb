@@ -21,7 +21,7 @@ RSpec.describe Admin::MembersController, type: :controller do
         get :index, format: :csv
 
         expect(response.body).to eq(
-%[id,full_name,joined_at,email,address,data,last_active_at,created_at,updated_at
+%[id,full_name,joined_at,email,address,phone,data,last_active_at,created_at,updated_at
 ]
         )
       end
@@ -29,11 +29,12 @@ RSpec.describe Admin::MembersController, type: :controller do
 
     context "when there are some memberships" do
       before do
-        ["Alice", "Beatrice"].each do |full_name|
+        ["Alice", "Beatrice"].each_with_index do |full_name, i|
           Member.create!(
             full_name: full_name,
             email: %[#{full_name}@example.com].downcase,
             address: "#{full_name} Address",
+            phone: "02X 000 000#{i}"
           )
         end
       end
@@ -53,7 +54,7 @@ RSpec.describe Admin::MembersController, type: :controller do
       it "includes the first member" do
         get :index, format: :csv
 
-        expect(response.body).to match %[.{8}-.{4}-.{4}-.{4}-.{12},Alice,.*,alice@example.com,Alice Address,{},.*,.*,.*]
+        expect(response.body).to match %[.{8}-.{4}-.{4}-.{4}-.{12},Alice,.*,alice@example.com,Alice Address,02X 000 0000,{},.*,.*,.*]
       end
 
       it "does not include the token" do
@@ -65,7 +66,7 @@ RSpec.describe Admin::MembersController, type: :controller do
       it "includes the second member" do
         get :index, format: :csv
 
-        expect(response.body).to match %[.{8}-.{4}-.{4}-.{4}-.{12},Beatrice,.*,beatrice@example.com,Beatrice Address,{},.*,.*,.*]
+        expect(response.body).to match %[.{8}-.{4}-.{4}-.{4}-.{12},Beatrice,.*,beatrice@example.com,Beatrice Address,02X 000 0001,{},.*,.*,.*]
       end
     end
   end

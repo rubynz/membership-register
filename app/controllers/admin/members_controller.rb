@@ -45,7 +45,7 @@ module Admin
     end
 
     def member_params
-      params.require(:member).permit(:full_name, :email, :address, :joined_at)
+      params.require(:member).permit(:full_name, :email, :address, :phone, :joined_at)
     end
 
   end

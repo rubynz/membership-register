@@ -57,7 +57,7 @@ en:
   simple_form:
     hints:
       member:
-        address: 'Collecting your address is a requirement of the Incorporated Societies Act 1908'
+        phone: 'Collecting your phone is a requirement of the Incorporated Societies Act 2022'
     placeholders:
       membership_inquiry:
         email: "Email Address"

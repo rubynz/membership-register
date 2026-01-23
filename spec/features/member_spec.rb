@@ -6,6 +6,9 @@ RSpec.describe "Member" do
     fill_in "Full Name", with: "John Doe"
     fill_in "Email", with: "john.doe@example.com"
     fill_in "Physical Address", with: "22 Pollen Street, Grey Lynn, Auckland 1021"
+    fill_in "Phone", with: "02X 000 0000"
+
+    expect(page).to have_content "Collecting your phone is a requirement"
 
     click_on "Register"
 
@@ -15,6 +18,7 @@ RSpec.describe "Member" do
     expect(page).to have_content "Email: john.doe@example.com"
     expect(page).to have_content %[Physical Address:
 22 Pollen Street, Grey Lynn, Auckland 1021]
+    expect(page).to have_content "Phone: 02X 000 0000"
   end
 
   it "updates their member right after registering" do
@@ -24,6 +28,7 @@ RSpec.describe "Member" do
     fill_in "Full Name", with: "John Doe"
     fill_in "Email", with: "john.doe@example.com"
     fill_in "Physical Address", with: "22 Pollen Street, Grey Lynn, Auckland 1021"
+    fill_in "Phone", with: "02X 000 0000"
 
     click_on "Register"
 
@@ -34,6 +39,7 @@ RSpec.describe "Member" do
     fill_in "Full Name", with: "Alice Doe"
     fill_in "Email", with: "alice.doe@example.com"
     fill_in "Physical Address", with: "5 Leamington Street, Addington, Christchurch 8024"
+    fill_in "Phone", with: "02X 000 0001"
 
     click_on "Save Changes"
 
@@ -43,6 +49,7 @@ RSpec.describe "Member" do
     expect(page).to have_content "Email: alice.doe@example.com"
     expect(page).to have_content %[Physical Address:
 5 Leamington Street, Addington, Christchurch 8024]
+    expect(page).to have_content "Phone: 02X 000 0001"
   end
 
   it "updates their membership" do
@@ -50,6 +57,7 @@ RSpec.describe "Member" do
       full_name: "John Doe",
       email: "john.doe@example.com",
       address: "22 Pollen Street, Grey Lynn, Auckland 1021",
+      phone: "02X 000 0000"
     )
 
     visit "/"
@@ -75,6 +83,7 @@ RSpec.describe "Member" do
     fill_in "Full Name", with: "Alice Doe"
     fill_in "Email", with: "alice.doe@example.com"
     fill_in "Physical Address", with: "5 Leamington Street, Addington, Christchurch 8024"
+    fill_in "Phone", with: "02X 000 0001"
     click_on "Save Changes"
 
     expect(page).to have_content "Membership Details"
@@ -83,6 +92,7 @@ RSpec.describe "Member" do
     expect(page).to have_content "Email: alice.doe@example.com"
     expect(page).to have_content %[Physical Address:
 5 Leamington Street, Addington, Christchurch 8024]
+    expect(page).to have_content "Phone: 02X 000 0001"
   end
 
   context "when token to update the memebership is invalid" do

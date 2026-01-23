@@ -41,7 +41,7 @@ private
   end
 
   def member_params
-    params.require(:member).permit(:full_name, :email, :address)
+    params.require(:member).permit(:full_name, :email, :address, :phone)
   end
 
   def token
