@@ -13,8 +13,8 @@ RSpec.describe "Member" do
     expect(page).to have_content "Full Name: John Doe"
     expect(page).to have_content "Joined: "
     expect(page).to have_content "Email: john.doe@example.com"
-    expect(page).to have_content %[Physical Address:
-22 Pollen Street, Grey Lynn, Auckland 1021]
+    expect(page).to have_content %(Physical Address:
+22 Pollen Street, Grey Lynn, Auckland 1021)
   end
 
   it "updates their member right after registering" do
@@ -41,15 +41,15 @@ RSpec.describe "Member" do
     expect(page).to have_content "Full Name: Alice Doe"
     expect(page).to have_content "Joined: "
     expect(page).to have_content "Email: alice.doe@example.com"
-    expect(page).to have_content %[Physical Address:
-5 Leamington Street, Addington, Christchurch 8024]
+    expect(page).to have_content %(Physical Address:
+5 Leamington Street, Addington, Christchurch 8024)
   end
 
   it "updates their membership" do
     Member.create!(
       full_name: "John Doe",
       email: "john.doe@example.com",
-      address: "22 Pollen Street, Grey Lynn, Auckland 1021",
+      address: "22 Pollen Street, Grey Lynn, Auckland 1021"
     )
 
     visit "/"
@@ -65,8 +65,8 @@ RSpec.describe "Member" do
 
     expect(email.to).to include "john.doe@example.com"
     expect(email.body.encoded).to match "Your Ruby New Zealand Membership"
-    expect(email.body.encoded).to match %r[Full Name:.*John Doe]
-    url = URI.extract(email.body.encoded).detect { |url| url.match(%r[example.com]) }
+    expect(email.body.encoded).to match %r{Full Name:.*John Doe}
+    url = URI.extract(email.body.encoded).detect { |url| url.match(%r{example.com}) }
 
     visit url.gsub("http://www.example.com", "")
 
@@ -81,8 +81,8 @@ RSpec.describe "Member" do
     expect(page).to have_content "Full Name: Alice Doe"
     expect(page).to have_content "Joined: "
     expect(page).to have_content "Email: alice.doe@example.com"
-    expect(page).to have_content %[Physical Address:
-5 Leamington Street, Addington, Christchurch 8024]
+    expect(page).to have_content %(Physical Address:
+5 Leamington Street, Addington, Christchurch 8024)
   end
 
   context "when token to update the memebership is invalid" do
@@ -90,7 +90,7 @@ RSpec.describe "Member" do
       member = Member.create!(
         full_name: "John Doe",
         email: "john.doe@example.com",
-        address: "22 Pollen Street, Grey Lynn, Auckland 1021",
+        address: "22 Pollen Street, Grey Lynn, Auckland 1021"
       )
 
       visit "/"

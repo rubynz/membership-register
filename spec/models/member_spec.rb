@@ -55,9 +55,9 @@ RSpec.describe Member do
       }.and change {
         subject.token_updated_at.year
       }.from(3.years.ago.year).to(Date.current.year)
-      .and change {
-        subject.last_active_at.year
-      }.from(3.years.ago.year).to(Date.current.year)
+        .and change {
+               subject.last_active_at.year
+             }.from(3.years.ago.year).to(Date.current.year)
     end
   end
 end

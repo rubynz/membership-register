@@ -33,7 +33,7 @@ class MembersController < ApplicationController
     respond_with @member
   end
 
-private
+  private
 
   def set_member
     @member = Member.find(params[:id])

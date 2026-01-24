@@ -10,10 +10,10 @@ ActiveRecord::Base.transaction do
     "Alice Doe",
     "Beatrice Doe",
     "Carl Doe",
-    "Dan Doe",
+    "Dan Doe"
   ].each do |full_name|
-    Member.find_or_initialize_by(full_name: full_name).tap do |member|
-      member.email = %[#{full_name.downcase.gsub(" ", ".")}@example.com]
+    Member.find_or_initialize_by(full_name:).tap do |member|
+      member.email = %(#{full_name.downcase.tr(" ", ".")}@example.com)
       member.save if member.new_record?
     end
   end

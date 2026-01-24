@@ -1,5 +1,4 @@
 class MembershipConfirmationsController < ApplicationController
-
   respond_to :html
 
   def new
@@ -12,7 +11,7 @@ class MembershipConfirmationsController < ApplicationController
     respond_with @confirm, location: :membership_confirmation
   end
 
-private
+  private
 
   def confirmation_params
     params.require(:membership_confirmation).permit(:email)

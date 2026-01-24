@@ -3,7 +3,7 @@ RSpec.describe "membership confirmation process" do
     Member.create!(
       full_name: "John Doe",
       email: "john.doe@example.com",
-      address: "22 Pollen Street, Grey Lynn, Auckland 1021",
+      address: "22 Pollen Street, Grey Lynn, Auckland 1021"
     )
   }
 
@@ -30,14 +30,14 @@ RSpec.describe "membership confirmation process" do
       )
 
       url = URI.extract(email.body.encoded).detect do |url|
-        url.match(%r[example.com])
+        url.match(%r{example.com})
       end
 
-      visit url.gsub('http://www.example.com', '')
+      visit url.gsub("http://www.example.com", "")
 
       expect(page).to have_content "Membership Confirmation"
       expect(page).to have_content(
-        "Submitting your email address will automatically confirm your " +
+        "Submitting your email address will automatically confirm your " \
         "continued NZ Ruby Membership."
       )
 
@@ -49,7 +49,7 @@ RSpec.describe "membership confirmation process" do
       }
 
       expect(page).to have_content(
-        "Congratulations. You have successfully confirmed your continuing " +
+        "Congratulations. You have successfully confirmed your continuing " \
         "Ruby NZ Membership."
       )
     end
@@ -72,10 +72,10 @@ RSpec.describe "membership confirmation process" do
       )
 
       url = URI.extract(email.body.encoded).detect do |url|
-        url.match(%r[example.com/$])
+        url.match(%r{example.com/$})
       end
 
-      visit url.gsub('http://www.example.com', '')
+      visit url.gsub("http://www.example.com", "")
 
       expect(page).to have_content("New Members")
       expect(page).to have_content(
@@ -99,7 +99,7 @@ RSpec.describe "membership confirmation process" do
       }
 
       expect(page).to have_content(
-        "Congratulations. You have successfully confirmed your continuing " +
+        "Congratulations. You have successfully confirmed your continuing " \
         "Ruby NZ Membership."
       )
     end
