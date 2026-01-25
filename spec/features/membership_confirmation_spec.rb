@@ -30,26 +30,23 @@ RSpec.describe "membership confirmation process" do
       )
 
       url = URI.extract(email.body.encoded).detect do |url|
-        url.match(%r[example.com])
+        url.match(%r{example.com})
       end
 
-      visit url.gsub('http://www.example.com', '')
+      visit url.gsub("http://www.example.com", "")
 
       expect(page).to have_content "Membership Confirmation"
       expect(page).to have_content(
-        "Submitting your email address will automatically confirm your " +
+        "Submitting your email address will automatically confirm your " \
         "continued NZ Ruby Membership."
       )
 
       fill_in "Email", with: "john.doe@example.com"
-      expect {
-        click_on "Confirm Membership"
-      }.to change {
-        member.reload.last_active_at
-      }
+      expect { click_on "Confirm Membership" }
+        .to change { member.reload.last_active_at }
 
       expect(page).to have_content(
-        "Congratulations. You have successfully confirmed your continuing " +
+        "Congratulations. You have successfully confirmed your continuing " \
         "Ruby NZ Membership."
       )
     end
@@ -72,10 +69,10 @@ RSpec.describe "membership confirmation process" do
       )
 
       url = URI.extract(email.body.encoded).detect do |url|
-        url.match(%r[example.com/$])
+        url.match(%r{example.com/$})
       end
 
-      visit url.gsub('http://www.example.com', '')
+      visit url.gsub("http://www.example.com", "")
 
       expect(page).to have_content("New Members")
       expect(page).to have_content(
@@ -92,14 +89,11 @@ RSpec.describe "membership confirmation process" do
 
       fill_in "Email", with: "john.doe@example.com"
 
-      expect {
-        click_on "Confirm Membership"
-      }.to change {
-        member.reload.last_active_at
-      }
+      expect { click_on "Confirm Membership" }
+        .to change { member.reload.last_active_at }
 
       expect(page).to have_content(
-        "Congratulations. You have successfully confirmed your continuing " +
+        "Congratulations. You have successfully confirmed your continuing " \
         "Ruby NZ Membership."
       )
     end

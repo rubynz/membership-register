@@ -20,6 +20,7 @@ class VoteRequestsController < ApplicationController
 
   def verify_voting_enabled
     return if helpers.voting_enabled?
-    raise 'Voting not enabled'
+
+    raise "Voting not enabled"
   end
 end

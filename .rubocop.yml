@@ -1,0 +1,58 @@
+require:
+  - standard
+
+plugins:
+  - rubocop-capybara
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-rspec_rails
+  - standard-custom
+  - standard-performance
+  - standard-rails
+
+inherit_gem:
+  standard: config/ruby-3.3.yml
+  standard-custom: config/base.yml
+  standard-performance: config/base.yml
+  standard-rails: config/base.yml
+
+AllCops:
+  DisabledByDefault: true
+  SuggestExtensions: false
+  TargetRubyVersion: 4.0
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/**/*'
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true
+
+Layout/EmptyLines:
+  Enabled: true
+
+Rails/CreateTableWithTimestamps:
+  Enabled: false
+
+Rails/RedundantPresenceValidationOnBelongsTo:
+  Enabled: false
+
+RSpecRails/NegationBeValid:
+  EnforcedStyle: be_invalid
+
+# In-lining access modifiers removes risk of accidentally changing access level
+# when re-ordering methods and improves clarity about method access
+Style/AccessModifierDeclarations:
+  EnforcedStyle: inline
+
+Style/ClassAndModuleChildren:
+  Enabled: true
+  EnforcedStyle: nested
+
+Style/HashSyntax:
+  Enabled: true
+  EnforcedShorthandSyntax: always

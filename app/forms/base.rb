@@ -6,13 +6,13 @@ class Base
   validates_presence_of :email
   validate :must_be_valid_email
 
-private
+  private
 
   def must_be_valid_email
-    errors.add(:email, :cannot_be_found) unless member.present?
+    errors.add(:email, :cannot_be_found) if member.blank?
   end
 
   def member
-    @member ||= Member.find_by email: email
+    @member ||= Member.find_by email:
   end
 end

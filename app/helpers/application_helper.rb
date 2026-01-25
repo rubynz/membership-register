@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def render_attribute(model, attr, &block)
     attr_name = model.class.human_attribute_name(attr)
     value = block_given? ? capture(&block) : model[attr]
@@ -7,8 +6,8 @@ module ApplicationHelper
     content_tag(:p) do
       safe_join [
         content_tag(:strong, "#{attr_name}:"),
-        value,
-      ], ' '
+        value
+      ], " "
     end
   end
 
@@ -21,5 +20,4 @@ module ApplicationHelper
   def voting_enabled?
     Rails.configuration.vote_url_template.present?
   end
-
 end

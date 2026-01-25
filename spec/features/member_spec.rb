@@ -65,8 +65,8 @@ RSpec.describe "Member" do
 
     expect(email.to).to include "john.doe@example.com"
     expect(email.body.encoded).to match "Your Ruby New Zealand Membership"
-    expect(email.body.encoded).to match %r[Full Name:.*John Doe]
-    url = URI.extract(email.body.encoded).detect { |url| url.match(%r[example.com]) }
+    expect(email.body.encoded).to match %r{Full Name:.*John Doe}
+    url = URI.extract(email.body.encoded).detect { |url| url.match(%r{example.com}) }
 
     visit url.gsub("http://www.example.com", "")
 
@@ -88,7 +88,7 @@ RSpec.describe "Member" do
     it "does not let the membership to be updated" do
       member = Member.create!(
         full_name: "John Doe",
-        email: "john.doe@example.com",
+        email: "john.doe@example.com"
       )
 
       visit "/"

@@ -1,5 +1,4 @@
 class MembershipInquiriesController < ApplicationController
-
   respond_to :html
 
   def new
@@ -12,11 +11,9 @@ class MembershipInquiriesController < ApplicationController
     respond_with @inquiry, location: membership_inquiry_path(@inquiry)
   end
 
-private
+  private
 
   def inquiry_params
     params.require(:membership_inquiry).permit(:email)
   end
-
-
 end

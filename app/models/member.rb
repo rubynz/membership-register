@@ -32,10 +32,9 @@ class Member < ApplicationRecord
     joined_at.to_date
   end
 
-private
+  private
 
   def set_joined_at
     self.joined_at ||= Time.current
   end
-
 end

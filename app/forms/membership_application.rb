@@ -1,5 +1,4 @@
 class MembershipApplication < Member
-
   delegate :model_name, to: superclass
 
   validates :full_name, {
@@ -7,8 +6,8 @@ class MembershipApplication < Member
     uniqueness: {
       if: :full_name_changed?,
       message: :already_registered,
-      case_sensitive: false,
-    },
+      case_sensitive: false
+    }
   }
 
   validates :email, {
@@ -16,11 +15,10 @@ class MembershipApplication < Member
     uniqueness: {
       if: :email_changed?,
       message: :already_registered,
-      case_sensitive: false,
+      case_sensitive: false
     },
     format: /.+@.+\..+/
   }
 
   validates :phone, presence: true
-
 end

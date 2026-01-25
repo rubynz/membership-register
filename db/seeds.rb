@@ -6,15 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 ActiveRecord::Base.transaction do
-  [
-    "Alice Doe",
-    "Beatrice Doe",
-    "Carl Doe",
-    "Dan Doe",
-  ].each_with_index do |full_name, i|
-    Member.find_or_initialize_by(full_name: full_name).tap do |member|
-      member.email = %[#{full_name.downcase.gsub(" ", ".")}@example.com]
-      member.phone = "02X 000 000#{i}"
+  ["Alice Doe", "Beatrice Doe", "Carl Doe", "Dan Doe"].each_with_index do |full_name, index|
+    Member.find_or_initialize_by(full_name:).tap do |member|
+      member.email = %(#{full_name.downcase.tr(" ", ".")}@example.com)
+      member.phone = "02X 000 000#{index}"
       member.save if member.new_record?
     end
   end

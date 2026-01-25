@@ -22,7 +22,7 @@ module Admin
             @members.pluck(*Member::EXPORTABLE_FIELDS).each { |member| csv << member }
           end
 
-          send_data csv_content, type: "text/csv"
+          send_data csv_content.force_encoding("UTF-8"), type: "text/csv"
         end
       end
     end
@@ -38,7 +38,7 @@ module Admin
       respond_with :admin, @member
     end
 
-  private
+    private
 
     def token_valid?
       true
@@ -47,6 +47,5 @@ module Admin
     def member_params
       params.require(:member).permit(:full_name, :email, :phone, :joined_at)
     end
-
   end
 end

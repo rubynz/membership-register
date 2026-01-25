@@ -7,8 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
       - run: cp config/database.yml.docker config/database.yml
       - run: cp docker-compose.yml.sample docker-compose.yml
       - run: cp .env.sample .env
@@ -19,3 +18,15 @@ jobs:
       - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake assets:precompile
       - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rake db:{create,migrate}
       - run: docker compose run -e RAILS_ENV=test --rm app bundle exec rspec -f d
+
+  linting-rubocop:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+      - run: cp config/database.yml.docker config/database.yml
+      - run: cp docker-compose.yml.sample docker-compose.yml
+      - run: cp .env.sample .env
+      - run: docker compose build --pull --build-arg RAILS_ENV=development
+      - run: docker compose run -e RAILS_ENV=development --rm app bundle install
+      - run: docker compose run -e RAILS_ENV=development --rm app bundle exec rubocop

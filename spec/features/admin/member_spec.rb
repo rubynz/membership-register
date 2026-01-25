@@ -23,11 +23,11 @@ RSpec.describe "Admin" do
     before { page.driver.browser.authorize "secretary", "password" }
 
     it "sees all memberships" do
-      ["Alice", "Beatrice"].each_with_index do |full_name, i|
+      ["Alice", "Beatrice"].each_with_index do |full_name, index|
         Member.create!(
-          full_name: full_name,
-          email: %[#{full_name}@example.com].downcase,
-          phone: "02X 000 000#{i}"
+          full_name:,
+          email: %(#{full_name}@example.com).downcase,
+          phone: "02X 000 000#{index}"
         )
       end
 
