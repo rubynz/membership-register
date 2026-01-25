@@ -82,6 +82,8 @@ When set, a message will appear on the home page, and members will be able to ge
 
 ## Deployment
 
-To deploy this app you need Nodejs to compile the assets, but only Ruby to run the production server.
+To deploy this app, run:
 
-Heroku should identify you need those two dependencies, if it does not, please refer to the [Buildpacks](https://devcenter.heroku.com/articles/buildpacks) documentation.
+    bin/deploy
+
+This will deploy the application to Fly.
