@@ -1,2 +1,2 @@
-require 'capybara/rails'
-require 'capybara/email/rspec'
+require "capybara/rails"
+require "capybara/email/rspec"

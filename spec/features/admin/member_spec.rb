@@ -25,8 +25,8 @@ RSpec.describe "Admin" do
     it "sees all memberships" do
       ["Alice", "Beatrice"].each do |full_name|
         Member.create!(
-          full_name: full_name,
-          email: %[#{full_name}@example.com].downcase,
+          full_name:,
+          email: %(#{full_name}@example.com).downcase
         )
       end
 
@@ -48,15 +48,15 @@ RSpec.describe "Admin" do
 
       fill_in "Full Name", with: "John Doe"
       fill_in "Email", with: "john.doe@example.com"
-      fill_in "Physical Address", with: %[22 Pollen Street, Grey Lynn, Auckland 1021]
+      fill_in "Physical Address", with: %(22 Pollen Street, Grey Lynn, Auckland 1021)
 
       click_on "Save Changes"
 
       expect(page).to have_content "Full Name: John Doe"
       expect(page).to have_content "Joined: "
       expect(page).to have_content "Email: john.doe@example.com"
-      expect(page).to have_content %[Physical Address:
-22 Pollen Street, Grey Lynn, Auckland 1021]
+      expect(page).to have_content %(Physical Address:
+22 Pollen Street, Grey Lynn, Auckland 1021)
     end
 
     it "registers for a membership" do
@@ -66,15 +66,15 @@ RSpec.describe "Admin" do
 
       fill_in "Full Name", with: "John Doe"
       fill_in "Email", with: "john.doe@example.com"
-      fill_in "Physical Address", with: %[22 Pollen Street, Grey Lynn, Auckland 1021]
+      fill_in "Physical Address", with: %(22 Pollen Street, Grey Lynn, Auckland 1021)
 
       click_on "Register"
 
       expect(page).to have_content "Full Name: John Doe"
       expect(page).to have_content "Joined: "
       expect(page).to have_content "Email: john.doe@example.com"
-      expect(page).to have_content %[Physical Address:
-22 Pollen Street, Grey Lynn, Auckland 1021]
+      expect(page).to have_content %(Physical Address:
+22 Pollen Street, Grey Lynn, Auckland 1021)
     end
   end
 end

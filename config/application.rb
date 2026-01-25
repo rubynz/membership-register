@@ -24,7 +24,7 @@ module MembershipRegister
   end
 
   class Application < Rails::Application
-    config.time_zone = ENV.fetch('APP_TIMEZONE', 'Pacific/Auckland')
+    config.time_zone = ENV.fetch("APP_TIMEZONE", "Pacific/Auckland")
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
@@ -32,7 +32,7 @@ module MembershipRegister
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w(assets tasks))
+    config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -43,7 +43,6 @@ module MembershipRegister
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Used for membership voting
-    config.vote_url_template = ENV['VOTE_URL_TEMPLATE']
-
+    config.vote_url_template = ENV["VOTE_URL_TEMPLATE"]
   end
 end

@@ -34,4 +34,11 @@ end
 
 group :development do
   gem "listen"
+  gem "rubocop-capybara"
+  gem "rubocop-rails"
+  gem "rubocop-rake"
+  gem "rubocop-rspec"
+  gem "rubocop-rspec_rails"
+  gem "standard"
+  gem "standard-rails"
 end
