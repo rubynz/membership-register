@@ -41,7 +41,7 @@ class MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:full_name, :email, :address)
+    params.require(:member).permit(:full_name, :email, :phone)
   end
 
   def token

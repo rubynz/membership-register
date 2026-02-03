@@ -20,23 +20,13 @@ RSpec.describe Admin::MembersController, type: :controller do
       it "downloads an empty CSV" do
         get :index, format: :csv
 
-        expect(response.body).to eq(
-%(id,full_name,joined_at,email,address,data,last_active_at,created_at,updated_at
-)
-)
+        expect(response.body).to eq(%(id,full_name,joined_at,email,phone,data,last_active_at,created_at,updated_at\n))
       end
     end
 
     context "when there are some memberships" do
-      before do
-        ["Alice", "Beatrice"].each do |full_name|
-          Member.create!(
-            full_name:,
-            email: %(#{full_name}@example.com).downcase,
-            address: "#{full_name} Address"
-          )
-        end
-      end
+      let!(:alice) { Member.create!(full_name: "Alice", email: "alice@example.com", phone: "02X 000 0000") }
+      let!(:beatrice) { Member.create!(full_name: "Beatrice", email: "beatrice@example.com", phone: "02X 000 0001") }
 
       it "returns text/csv as the content-type" do
         get :index, format: :csv
@@ -53,7 +43,7 @@ RSpec.describe Admin::MembersController, type: :controller do
       it "includes the first member" do
         get :index, format: :csv
 
-        expect(response.body).to match %(.{8}-.{4}-.{4}-.{4}-.{12},Alice,.*,alice@example.com,Alice Address,{},.*,.*,.*)
+        expect(response.body).to match %(.{8}-.{4}-.{4}-.{4}-.{12},Alice,.*,alice@example.com,02X 000 0000,{},.*,.*,.*)
       end
 
       it "does not include the token" do
@@ -65,7 +55,7 @@ RSpec.describe Admin::MembersController, type: :controller do
       it "includes the second member" do
         get :index, format: :csv
 
-        expect(response.body).to match %(.{8}-.{4}-.{4}-.{4}-.{12},Beatrice,.*,beatrice@example.com,Beatrice Address,{},.*,.*,.*)
+        expect(response.body).to match %(.{8}-.{4}-.{4}-.{4}-.{12},Beatrice,.*,beatrice@example.com,02X 000 0001,{},.*,.*,.*)
       end
     end
   end

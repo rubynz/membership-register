@@ -1,11 +1,7 @@
 RSpec.feature "Voting" do
-  scenario "Member requests vote" do
-    member = Member.create!(
-      full_name: "Ada Lovelace",
-      email: "ada@example.com",
-      address: "Marylebone"
-    )
+  let!(:member) { Member.create!(full_name: "Ada Lovelace", email: "ada@example.com", phone: "02X 000 0000") }
 
+  scenario "Member requests vote" do
     visit "/"
     click_on "Cast your vote"
     fill_in "Email", with: "ada@example.com"

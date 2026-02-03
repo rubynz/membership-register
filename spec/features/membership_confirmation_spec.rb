@@ -3,7 +3,7 @@ RSpec.describe "membership confirmation process" do
     Member.create!(
       full_name: "John Doe",
       email: "john.doe@example.com",
-      address: "22 Pollen Street, Grey Lynn, Auckland 1021"
+      phone: "02X 000 0000"
     )
   }
 
@@ -25,7 +25,7 @@ RSpec.describe "membership confirmation process" do
           (?-x:please confirm your existing membership here:).*
           (?-x:Being a member of Ruby New Zealand allows you to have your say).*
           (?-x:about the committee and other society matters at the annual AGM).*
-          (?-x:Kind regards.*The 2021 New Zealand Ruby Committee.)
+          (?-x:Kind regards.*The New Zealand Ruby Committee.)
         }xm
       )
 
@@ -42,11 +42,8 @@ RSpec.describe "membership confirmation process" do
       )
 
       fill_in "Email", with: "john.doe@example.com"
-      expect {
-        click_on "Confirm Membership"
-      }.to change {
-        member.reload.last_active_at
-      }
+      expect { click_on "Confirm Membership" }
+        .to change { member.reload.last_active_at }
 
       expect(page).to have_content(
         "Congratulations. You have successfully confirmed your continuing " \
@@ -67,7 +64,7 @@ RSpec.describe "membership confirmation process" do
           (?-x:next month, we will remove your details from the Ruby New Zealand).*
           (?-x:Member’s register. Should you wish to rejoin, you can register).*
           (?-x:for membership here:).*
-          (?-x:Kind regards.*The 2021 New Zealand Ruby Committee)
+          (?-x:Kind regards.*The New Zealand Ruby Committee)
         }xm
       )
 
@@ -92,11 +89,8 @@ RSpec.describe "membership confirmation process" do
 
       fill_in "Email", with: "john.doe@example.com"
 
-      expect {
-        click_on "Confirm Membership"
-      }.to change {
-        member.reload.last_active_at
-      }
+      expect { click_on "Confirm Membership" }
+        .to change { member.reload.last_active_at }
 
       expect(page).to have_content(
         "Congratulations. You have successfully confirmed your continuing " \

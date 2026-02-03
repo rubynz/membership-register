@@ -7,7 +7,6 @@ module.exports = {
   entry: {
     application: [
       "./app/javascript/application.js",
-      "./app/javascript/addressfinder.js",
     ]
   },
   output: {

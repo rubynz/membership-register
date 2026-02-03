@@ -4,7 +4,7 @@ class Member < ApplicationRecord
     full_name
     joined_at
     email
-    address
+    phone
     data
     last_active_at
     created_at

@@ -17,7 +17,7 @@
       <th><%= Member.human_attribute_name(:full_name) %></th>
       <th><%= Member.human_attribute_name(:joined) %></th>
       <th><%= Member.human_attribute_name(:email) %></th>
-      <th><%= Member.human_attribute_name(:address) %></th>
+      <th><%= Member.human_attribute_name(:phone) %></th>
       <th><%= Member.human_attribute_name(:updated) %></th>
     </tr>
   </thead>
@@ -28,7 +28,7 @@
         <td><%= link_to member.full_name, [:admin, member] %></td>
         <td><%= member.join_date.to_fs(:long) %></td>
         <td><%= member.email %></td>
-        <td><%= member.address %></td>
+        <td><%= member.phone %></td>
         <td><%= time_ago_span(member.updated_at) %></td>
       </tr>
     <% end %>

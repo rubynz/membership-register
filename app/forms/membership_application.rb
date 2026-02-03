@@ -20,5 +20,5 @@ class MembershipApplication < Member
     format: /.+@.+\..+/
   }
 
-  validates :address, presence: true
+  validates :phone, presence: true
 end
