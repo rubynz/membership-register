@@ -82,8 +82,13 @@ When set, a message will appear on the home page, and members will be able to ge
 
 ## Deployment
 
-To deploy this app, run:
+To deploy this app to Fly, run:
 
     bin/deploy
 
-This will deploy the application to Fly.
+- The app is deployed on fly.io.
+- DNS is provided by Cloudflare.
+- SMTP is provided by SMTP2Go.
+
+Credentials to the above are avaible to Committee members
+in 1Password.
