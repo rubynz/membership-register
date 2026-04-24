@@ -117,7 +117,7 @@ GEM
     diff-lcs (1.5.1)
     dotenv (3.1.4)
     drb (2.2.3)
-    erb (6.0.1)
+    erb (6.0.1.1)
     erubi (1.13.1)
     falcon (0.53.1)
       async
