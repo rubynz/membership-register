@@ -184,7 +184,7 @@ GEM
     minitest (6.0.1)
       prism (~> 1.5)
     msgpack (1.7.2)
-    net-imap (0.6.2)
+    net-imap (0.6.4)
       date
       net-protocol
     net-pop (0.1.2)
@@ -366,7 +366,7 @@ GEM
     string-format (0.2.0)
     stringio (3.2.0)
     thor (1.4.0)
-    timeout (0.6.0)
+    timeout (0.6.1)
     traces (0.18.2)
     tsort (0.2.0)
     tzinfo (2.0.6)
